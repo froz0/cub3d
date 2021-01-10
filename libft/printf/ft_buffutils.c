@@ -6,24 +6,25 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:22:13 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/02 17:04:31 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/10 14:28:07 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <unistd.h>
 
-t_buffer	ft_buffinit(void)
+t_buffer	ft_buffinit(int fd)
 {
 	t_buffer	buff;
 
 	buff.size = 0;
+	buff.fd = fd;
 	return (buff);
 }
 
 void	ft_buffflush(t_buffer *buffer)
 {
-	write(1, buffer->content, buffer->size);
+	write(buffer->fd, buffer->content, buffer->size);
 	buffer->size = 0;
 }
 

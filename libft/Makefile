@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/01/08 22:28:49 by tmatis           ###   ########.fr        #
+#    Updated: 2021/01/10 14:55:49 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,8 @@ SRCS_PRINTF		= ft_printf.c ft_buffutils.c ft_parsesyntax.c ft_parseutils.c\
 
 SRCS_WSTRING	= ft_wstr_strlen.c ft_wstrlen.c ft_wstrnlen.c ft_wstrtostr.c
 
+SRCS_LOG		= ft_log.c
+
 OBJS_ASSERT		= $(addprefix assert/, ${SRCS_ASSERT:.c=.o})
 OBJS_CHAR		= $(addprefix char/, ${SRCS_CHAR:.c=.o})
 OBJS_LST		= $(addprefix lst/, ${SRCS_LST:.c=.o})
@@ -57,6 +59,7 @@ OBJS_STRING		= $(addprefix string/, ${SRCS_STRING:.c=.o})
 OBJS_WSTRING	= $(addprefix wstring/, ${SRCS_WSTRING:.c=.o})
 OBJS_GNL		= $(addprefix gnl/, ${SRCS_GNL:.c=.o})
 OBJS_PRINTF 	= $(addprefix printf/, ${SRCS_PRINTF:.c=.o})
+OBJS_LOG	 	= $(addprefix log/, ${SRCS_LOG:.c=.o})
 NAME			= libft.a
 
 .c.o:
@@ -65,7 +68,7 @@ NAME			= libft.a
 
 $(NAME):	${OBJS_ASSERT} ${OBJS_CHAR} ${OBJS_LST} ${OBJS_MEMORY} \
 			${OBJS_MISC} ${OBJS_PUT} ${OBJS_STRING} ${OBJS_WSTRING} \
-			${OBJS_GNL} ${OBJS_PRINTF} 
+			${OBJS_GNL} ${OBJS_PRINTF} ${OBJS_LOG} 
 			@echo Linking library...
 			@ar -rcs  $@ $^
 
@@ -75,7 +78,7 @@ clean:
 			@echo CLeaning OBJS 
 			@rm -f ${OBJS_ASSERT} ${OBJS_CHAR} ${OBJS_LST} ${OBJS_MEMORY} \
 			${OBJS_MISC} ${OBJS_PUT} ${OBJS_STRING} ${OBJS_WSTRING} \
-			${OBJS_GNL} ${OBJS_PRINTF}
+			${OBJS_GNL} ${OBJS_PRINTF} ${OBJS_LOG}
  
 fclean:		clean
 			@echo CLeaning library...

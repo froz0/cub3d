@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_log.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/08 22:31:06 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/10 14:17:58 by tmatis           ###   ########.fr       */
+/*   Created: 2021/01/10 14:04:16 by tmatis            #+#    #+#             */
+/*   Updated: 2021/01/10 14:53:29 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
+#include "../printf/printf.h"
 
-# define PRINTF_H
+void	ft_log_info(char *log)
+{
+	ft_printf("[\033[0;32mINFO\x1b[0m] %s\n", log);
+}
 
-int	ft_printf(const char *format, ...);
-int	ft_dprintf(int fd, const char *format, ...);
-int	ft_sprintf(char *str, const char *format, ...);
+void	ft_log_error(char *log)
+{
+	ft_printf("[\033[0;31mERROR\x1b[0m] %s\n", log);
+}
 
-#endif
+void	ft_log_warn(char *log)
+{
+	ft_printf("[\033[0;33mWARN\x1b[0m] %s\n", log);
+}

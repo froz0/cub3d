@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 19:16:04 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/08 22:29:51 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/10 14:29:09 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef enum e_bool
 typedef struct s_buffer
 {
 	char	content[BUFFER_SIZE];
+	int		fd;
 	size_t	size;
 }	t_buffer;
 
@@ -55,7 +56,7 @@ typedef struct s_syntax
 	int			count;
 }	t_syntax;
 
-t_buffer		ft_buffinit(void);
+t_buffer		ft_buffinit(int fd);
 void			ft_buffflush(t_buffer *buffer);
 void			ft_buffcat(t_buffer *buffer, const char *s2, size_t size);
 t_syntax		ft_parseflags(const char **format, t_syntax syntax);
@@ -102,4 +103,5 @@ int				ft_n_l(t_syntax syntax, t_buffer *buffer, va_list va);
 void			ft_buff_fill(t_buffer *buffer, int c, int size);
 int				ft_buffnbr_signed(long long si, char *bs, t_syntax s, char *b);
 int				ft_buffnbr_unsigned(ULL si, char *base, t_syntax s, char *buff);
+int				ft_doconversion(t_syntax syntax, t_buffer *buffer, va_list va);
 #endif

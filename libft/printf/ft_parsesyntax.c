@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 12:35:29 by tmatis            #+#    #+#             */
-/*   Updated: 2020/12/13 18:02:19 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/10 14:23:44 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,24 @@ t_syntax	ft_parsesyntax(const char **format, va_list va)
 	syntax = ft_parselength(format, syntax);
 	syntax = ft_parsetype(format, syntax);
 	return (syntax);
+}
+
+int	ft_doconversion(t_syntax syntax, t_buffer *buffer, va_list va)
+{
+	int		result;
+
+	result = 0;
+	if (syntax.type == -1)
+		return (-1);
+	if (syntax.length == def)
+		result = ft_def_conversion(syntax, buffer, va);
+	else if (syntax.length == l)
+		result = ft_l_conversion(syntax, buffer, va);
+	else if (syntax.length == ll)
+		result = ft_ll_conversion(syntax, buffer, va);
+	else if (syntax.length == h)
+		result = ft_h_conversion(syntax, buffer, va);
+	else if (syntax.length == hh)
+		result = ft_hh_conversion(syntax, buffer, va);
+	return (result);
 }
