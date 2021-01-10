@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 16:43:44 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/08 22:33:59 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/10 16:43:11 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,6 @@
 # include "put/put.h"
 # include "gnl/ft_gnl.h"
 # include "printf/printf.h"
+# include "log/log.h"
+
 #endif

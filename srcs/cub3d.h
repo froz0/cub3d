@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_log.c                                           :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/10 14:04:16 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/10 16:05:01 by tmatis           ###   ########.fr       */
+/*   Created: 2021/01/10 16:38:54 by tmatis            #+#    #+#             */
+/*   Updated: 2021/01/10 16:47:27 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../printf/printf.h"
+#ifndef CUB3D_H
 
-void	ft_log_info(char *log)
-{
-	ft_printf("[\033[0;32mINFO\x1b[0m] %s\n", log);
-}
+# define CUB3D_H
 
-void	ft_log_error(char *log)
-{
-	ft_dprintf(2, "[\033[0;31mERROR\x1b[0m] %s\n", log);
-}
+# include "../libft/libft.h"
 
-void	ft_log_warn(char *log)
+typedef struct s_args
 {
-	ft_printf("[\033[0;33mWARN\x1b[0m] %s\n", log);
-}
+	int fd;
+	int save;
+}	t_args;
+
+#endif
