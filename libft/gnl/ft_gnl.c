@@ -6,13 +6,21 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 21:38:49 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/08 22:23:31 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/11 15:35:02 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_gnl.h"
 
-int	ft_empty(char **line)
+int	ft_uninitchunk(t_chunk *chunk, int returnval)
+{
+	chunk->init = 0;
+	chunk->len = 0;
+	free(chunk->data);
+	return (returnval);
+}
+
+int	ft_empty(char **line, t_chunk *tofree)
 {
 	char	*dst;
 
@@ -21,15 +29,7 @@ int	ft_empty(char **line)
 		return (-1);
 	dst[0] = '\0';
 	*line = dst;
-	return (0);
-}
-
-int	ft_uninitchunk(t_chunk *chunk, int returnval)
-{
-	chunk->init = 0;
-	chunk->len = 0;
-	free(chunk->data);
-	return (returnval);
+	return (ft_uninitchunk(tofree, 0));
 }
 
 int	ft_nextline(t_chunk *chunk, char **line, int pos)
@@ -52,7 +52,7 @@ int	ft_compute(t_chunk *chunk, char **line, int pos)
 			return (ft_nextline(chunk, line, pos));
 	}
 	else
-		return (ft_empty(line));
+		return (ft_empty(line, chunk));
 }
 
 int	ft_gnl(int fd, char **line)
