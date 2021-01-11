@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/01/10 14:55:49 by tmatis           ###   ########.fr        #
+#    Updated: 2021/01/11 11:47:32 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS_ASSERT		= assert.c assert_utils.c
 
 SRCS_CHAR		= ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 				  ft_islower.c ft_isprint.c ft_isupper.c ft_toupper.c \
-				  ft_utf8_encode.c
+				  ft_utf8_encode.c ft_isspace.c
 
 SRCS_LST		= ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
 				  ft_lstdelone.c ft_lstiter.c ft_lstmap.c ft_lstnew.c \

@@ -1,31 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/10 16:38:54 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/11 11:32:26 by tmatis           ###   ########.fr       */
+/*   Created: 2021/01/10 23:39:38 by tmatis            #+#    #+#             */
+/*   Updated: 2021/01/11 11:24:39 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
+#ifndef PARSER_H
 
-# define CUB3D_H
+# define PARSER_H
 
-# include "../libft/libft.h"
-# include "./parser/parser.h"
+# include "../cub3d.h"
 
-/*
-** t_args is used to store information about the args
-** fd: store the fd returned from the open() -1 if error
-** save: 0 if --save is absent 1 if it is here
-*/
-typedef struct s_args
+typedef struct s_rgb
 {
-	int	fd;
-	int	save;
-}	t_args;
+	int	r;
+	int	g;
+	int	b;
+}	t_rgb;
+
+typedef struct s_scene
+{
+	int		x_scr;
+	int		y_scr;
+	int		no;
+	int		so;
+	int		we;
+	int		ea;
+	int		s;
+	t_rgb	f;
+	t_rgb	c;
+	int		sizex;
+	int		sizey;
+	char	**map;
+}	t_scene;
+
+void	ft_parse_head(int fd, t_scene *scene);
+t_scene	ft_parse_scene(int fd);
 
 #endif

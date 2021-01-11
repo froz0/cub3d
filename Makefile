@@ -6,14 +6,14 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/01/10 15:54:32 by tmatis           ###   ########.fr        #
+#    Updated: 2021/01/11 11:12:31 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME		= cub3d
 
-SRCS_CUB3D	= main.c
+SRCS_CUB3D	= main.c parser/parser.c parser/parse_head.c
 
 
 OBJS_CUB3D	= $(addprefix srcs/, ${SRCS_CUB3D:.c=.o})
@@ -24,7 +24,7 @@ OBJS_CUB3D	= $(addprefix srcs/, ${SRCS_CUB3D:.c=.o})
 
 $(NAME):	libft ${OBJS_CUB3D}
 			@echo Linking program...
-			@clang -Wall -Wextra -Werror -o $@ ${OBJS_CUB3D} -L./libft -lft
+			@clang -Wall -Wextra -Werror -fsanitize=address -o $@ ${OBJS_CUB3D} -L./libft -lft
 
 libft:
 			@echo compiling libft...
