@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char.h                                             :+:      :+:    :+:   */
+/*   main_tests.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/04 15:09:20 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/11 18:41:13 by tmatis           ###   ########.fr       */
+/*   Created: 2021/01/11 19:26:31 by tmatis            #+#    #+#             */
+/*   Updated: 2021/01/11 19:32:37 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHAR_H
+#include "../libft/libft.h"
 
-# define CHAR_H
+int	main(int argc, char **argv)
+{
+	t_tests	tests;
+	int		log;
 
-int	ft_isalnum(int c);
-int	ft_isalpha(int c);
-int	ft_isascii(int c);
-int	ft_isdigit(int c);
-int	ft_islower(int c);
-int	ft_isprint(int c);
-int	ft_isupper(int c);
-int	ft_tolower(int c);
-int	ft_toupper(int c);
-int	ft_utf8_encode(int c, char *buff);
-int	ft_isspace(int c);
-int	ft_isnum(int c);
-
-#endif
+	log = 0;
+	if (argc > 1)
+		log = ft_atoi(argv[1]);
+	tests = ft_init_tester("Cub3D tests", log);
+	ft_tests_header(&tests);
+	ft_tests_result(&tests);
+	if (tests.tests_failed)
+		return (1);
+	return (0);
+}

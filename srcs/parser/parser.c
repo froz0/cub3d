@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 23:41:50 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/11 14:51:59 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/11 18:15:09 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ t_scene	ft_init_scene(void)
 	s.err = 0;
 	s.x_scr = 0;
 	s.y_scr = 0;
-	s.no = -1;
-	s.so = -1;
-	s.we = -1;
-	s.ea = -1;
-	s.s = -1;
+	s.no = 0;
+	s.so = 0;
+	s.we = 0;
+	s.ea = 0;
+	s.s = 0;
 	s.f = ft_init_rgb(-1, -1, -1);
 	s.c = ft_init_rgb(-1, -1, -1);
 	s.sizex = 0;
@@ -47,7 +47,15 @@ t_scene	ft_parse_scene(int fd)
 	t_scene	scene;
 
 	scene = ft_init_scene();
-	ft_log_info("Parsing scene's head");
+	ft_log_task("Parsing scene's head.. ");
 	ft_parse_head(fd, &scene);
+	if (scene.err)
+	{
+		ft_log_ok(0);
+		ft_dprintf(2, "Error\n");
+		ft_log_error("Unknow char encountered, exiting...");
+	}
+	else
+		ft_log_ok(1);
 	return (scene);
 }

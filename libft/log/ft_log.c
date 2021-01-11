@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 14:04:16 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/10 16:05:01 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/11 15:52:36 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,17 @@ void	ft_log_error(char *log)
 void	ft_log_warn(char *log)
 {
 	ft_printf("[\033[0;33mWARN\x1b[0m] %s\n", log);
+}
+
+void	ft_log_task(char *log)
+{
+	ft_printf("[\033[0;34mTASK\x1b[0m] %s", log);
+}
+
+void	ft_log_ok(int b)
+{
+	if (b)
+		ft_printf("\033[0;32m[OK]\x1b[0m\n");
+	else
+		ft_printf("\033[0;31m[KO]\x1b[0m\n");
 }
