@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 14:00:57 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/11 15:03:09 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/11 15:38:07 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static t_args	ft_parseargs(int argc, char **argv)
 	}
 	else if (argc > 1)
 		args.save = 1;
+	ft_log_info("Opening scene...");
 	args.fd = open(argv[0], O_RDONLY);
 	return (args);
 }
