@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/01/11 11:47:32 by tmatis           ###   ########.fr        #
+#    Updated: 2021/01/11 15:21:49 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ NAME			= libft.a
 
 .c.o:
 			@echo Compiling: $<
-			@clang -Wall -Wextra -Werror -c $< -o ${<:.c=.o}
+			@clang -Wall -Wextra -Werror -c -g $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS_ASSERT} ${OBJS_CHAR} ${OBJS_LST} ${OBJS_MEMORY} \
 			${OBJS_MISC} ${OBJS_PUT} ${OBJS_STRING} ${OBJS_WSTRING} \
