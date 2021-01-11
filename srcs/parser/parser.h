@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 23:39:38 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/11 11:24:39 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/11 14:50:57 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_rgb
 
 typedef struct s_scene
 {
+	int		err;
 	int		x_scr;
 	int		y_scr;
 	int		no;

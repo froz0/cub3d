@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 00:10:12 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/11 14:48:40 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/11 14:54:47 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ void	ft_parse_line(char *line, t_scene *scene)
 	if (ft_strncmp(line, "R", 1) == 0)
 		ft_parse_r(line, scene);
 	else
-	{
-		ft_log_error("Scene head is invalid, exiting...");
-		exit(1);
-	}
+		ft_log_error("Scene head is invalid, free and exiting...");
 }
 
 void	ft_parse_head(int fd, t_scene *scene)
@@ -47,7 +44,8 @@ void	ft_parse_head(int fd, t_scene *scene)
 	{
 		if (r != 2)
 		{
-			ft_parse_line(line, scene);
+			if (!scene->err)
+				ft_parse_line(line, scene);
 			free(line);
 		}
 		r = ft_gnl(fd, &line);
