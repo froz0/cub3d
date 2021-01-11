@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 00:10:12 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/11 14:35:48 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/11 14:48:40 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ void	ft_parse_head(int fd, t_scene *scene)
 		if (r != 2)
 		{
 			ft_parse_line(line, scene);
-			//free(line);
+			free(line);
 		}
 		r = ft_gnl(fd, &line);
 	}
-	if (r == 0);
-		//free(line);
+	if (r == 0)
+		free(line);
 	else if (r == -1)
 	{
 		ft_dprintf(2, "Error\n");
