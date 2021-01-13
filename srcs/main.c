@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 14:00:57 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/11 19:24:04 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/13 14:10:39 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,20 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <errno.h>  
+
+static	int	ft_verify_cub(char *filename)
+{
+	char	*find;
+
+	find = ft_strrchr(filename, '.');
+	if (!find || ft_strcmp(find, ".cub"))
+	{
+		ft_log_error("Map is not a *.cub, exiting...");
+		exit(1);
+	}
+	ft_log_info("Opening scene...");
+	return (open(filename, O_RDONLY));
+}
 
 static t_args	ft_parseargs(int argc, char **argv)
 {
@@ -23,24 +37,23 @@ static t_args	ft_parseargs(int argc, char **argv)
 	if (argc > 2)
 	{
 		ft_log_error("Too mutch parameters, exiting...");
-		ft_log_info("Usage: ./cub3d <path/map.cub [--save]");
+		ft_log_info("Usage: ./cub3d <path/map.cub> [--save]");
 		exit(1);
 	}
 	else if (argc < 1)
 	{
 		ft_log_error("Too less parameters, exiting...");
-		ft_log_info("Usage: ./cub3d <path/map.cub [--save]");
+		ft_log_info("Usage: ./cub3d <path/map.cub> [--save]");
 		exit(1);
 	}
 	if (argc > 1 && (ft_strcmp(argv[1], "--save")))
 	{
 		ft_log_warn("Unknow 2nd parameter, ignoring...");
-		ft_log_info("Usage: ./cub3d <path/map.cub [--save]");
+		ft_log_info("Usage: ./cub3d <path/map.cub> [--save]");
 	}
 	else if (argc > 1)
 		args.save = 1;
-	ft_log_info("Opening scene...");
-	args.fd = open(argv[0], O_RDONLY);
+	args.fd = ft_verify_cub(argv[0]);
 	return (args);
 }
 

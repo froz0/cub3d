@@ -6,11 +6,11 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 14:04:16 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/11 15:52:36 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/13 13:25:24 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../printf/printf.h"
+#include "log.h"
 
 void	ft_log_info(char *log)
 {
@@ -32,7 +32,7 @@ void	ft_log_task(char *log)
 	ft_printf("[\033[0;34mTASK\x1b[0m] %s", log);
 }
 
-void	ft_log_ok(int b)
+void	ft_log_ok(t_bool b)
 {
 	if (b)
 		ft_printf("\033[0;32m[OK]\x1b[0m\n");

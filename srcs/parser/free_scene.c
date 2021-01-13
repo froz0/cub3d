@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   log.h                                              :+:      :+:    :+:   */
+/*   free_scene.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/10 14:54:03 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/13 13:19:43 by tmatis           ###   ########.fr       */
+/*   Created: 2021/01/13 13:48:41 by tmatis            #+#    #+#             */
+/*   Updated: 2021/01/13 14:47:39 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LOG_H
+#include "parser.h"
 
-# define LOG_H
-# include "../libft.h"
+void	ft_free_head(t_scene *scene)
+{
+	if (scene->no)
+		free(scene->no);
+	if (scene->so)
+		free(scene->so);
+	if (scene->we)
+		free(scene->we);
+	if (scene->ea)
+		free(scene->ea);
+	if (scene->s)
+		free(scene->s);
+}
 
-void	ft_log_warn(char *log);
-void	ft_log_info(char *log);
-void	ft_log_error(char *log);
-void	ft_log_task(char *log);
-void	ft_log_ok(t_bool b);
-
-#endif
+void	ft_free_scene(t_scene *scene)
+{
+	ft_free_head(scene);
+}

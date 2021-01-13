@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 23:41:50 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/11 18:15:09 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/13 14:09:12 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,11 @@ t_scene	ft_init_scene(void)
 t_scene	ft_parse_scene(int fd)
 {
 	t_scene	scene;
+	int		result;
 
 	scene = ft_init_scene();
 	ft_log_task("Parsing scene's head.. ");
-	ft_parse_head(fd, &scene);
+	result = ft_parse_head(fd, &scene);
 	if (scene.err)
 	{
 		ft_log_ok(0);
@@ -56,6 +57,13 @@ t_scene	ft_parse_scene(int fd)
 		ft_log_error("Unknow char encountered, exiting...");
 	}
 	else
+	{
 		ft_log_ok(1);
+		if (!result)
+		{
+			ft_free_head(&scene);
+			ft_log_error("No map found, exiting...");
+		}
+	}
 	return (scene);
 }

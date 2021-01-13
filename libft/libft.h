@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 16:43:44 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/10 16:43:11 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/13 13:28:46 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 # define LIBFT_H
 
+# include "typedef.h"
 # include "assert/assert.h"
 # include "char/char.h"
 # include "lst/lst.h"

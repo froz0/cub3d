@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 19:16:04 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/10 14:29:09 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/13 13:51:49 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,6 @@ typedef enum e_length
 	h,
 	hh
 }	t_length;
-
-typedef enum e_bool
-{
-	false = 0,
-	true = 1
-}				t_bool;
 
 typedef struct s_buffer
 {

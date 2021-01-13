@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   log.h                                              :+:      :+:    :+:   */
+/*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/10 14:54:03 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/13 13:19:43 by tmatis           ###   ########.fr       */
+/*   Created: 2021/01/11 20:11:24 by tmatis            #+#    #+#             */
+/*   Updated: 2021/01/13 14:15:27 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LOG_H
+#include "parser.h"
 
-# define LOG_H
-# include "../libft.h"
+int	ft_ismapchar(int c)
+{
+	char	*charset;
 
-void	ft_log_warn(char *log);
-void	ft_log_info(char *log);
-void	ft_log_error(char *log);
-void	ft_log_task(char *log);
-void	ft_log_ok(t_bool b);
-
-#endif
+	charset = "102 NSEW";
+	if (ft_christr(charset, c) == -1)
+		return (0);
+	else
+		return (1);
+}
