@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/01/13 14:45:45 by tmatis           ###   ########.fr        #
+#    Updated: 2021/01/13 21:59:50 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME		= cub3d
 
 SRCS_CUB3D	= main.c parser/parser.c parser/parse_head.c parser/parse_map.c \
-			  parser/free_scene.c parser/elem_parse.c
+			  parser/free_scene.c parser/elem_parse.c parser/check_head.c
 
 
 OBJS_CUB3D	= $(addprefix srcs/, ${SRCS_CUB3D:.c=.o})

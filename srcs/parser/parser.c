@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 23:41:50 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/13 14:09:12 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/13 15:45:11 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ t_scene	ft_init_scene(void)
 	t_scene	s;
 
 	s.err = 0;
-	s.x_scr = 0;
-	s.y_scr = 0;
+	s.x_scr = -1;
+	s.y_scr = -1;
 	s.no = 0;
 	s.so = 0;
 	s.we = 0;
@@ -42,28 +42,38 @@ t_scene	ft_init_scene(void)
 	return (s);
 }
 
-t_scene	ft_parse_scene(int fd)
+static void	ft_parse_head_handle(int fd, t_scene *scene)
 {
-	t_scene	scene;
 	int		result;
 
-	scene = ft_init_scene();
 	ft_log_task("Parsing scene's head.. ");
-	result = ft_parse_head(fd, &scene);
-	if (scene.err)
+	result = ft_parse_head(fd, scene);
+	if (scene->err)
 	{
+		ft_free_scene(scene);
 		ft_log_ok(0);
 		ft_dprintf(2, "Error\n");
 		ft_log_error("Unknow char encountered, exiting...");
+		exit(1);
 	}
 	else
 	{
 		ft_log_ok(1);
 		if (!result)
 		{
-			ft_free_head(&scene);
+			ft_free_scene(scene);
 			ft_log_error("No map found, exiting...");
+			exit(1);
 		}
 	}
+}
+
+t_scene	ft_parse_scene(int fd)
+{
+	t_scene	scene;
+
+	scene = ft_init_scene();
+	ft_parse_head_handle(fd, &scene);
+	ft_check_head(&scene);
 	return (scene);
 }

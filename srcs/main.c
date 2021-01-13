@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 14:00:57 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/13 14:10:39 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/13 15:26:43 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ static t_args	ft_parseargs(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	t_args	args;
+	t_scene	scene;
 
 	args = ft_parseargs(argc - 1, argv + 1);
 	if (args.fd < 0)
@@ -68,6 +69,7 @@ int	main(int argc, char **argv)
 		exit(errno);
 	}
 	ft_log_info("Parsing the scene...");
-	ft_parse_scene(args.fd);
+	scene = ft_parse_scene(args.fd);
+	ft_free_scene(&scene);
 	close(args.fd);
 }
