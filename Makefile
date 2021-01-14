@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/01/13 21:59:50 by tmatis           ###   ########.fr        #
+#    Updated: 2021/01/14 15:16:31 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJS_CUB3D	= $(addprefix srcs/, ${SRCS_CUB3D:.c=.o})
 
 $(NAME):	libft ${OBJS_CUB3D}
 			@echo Linking program...
-			@clang -Wall -Wextra -Werror -g -o $@ ${OBJS_CUB3D} -L./libft -lft
+			@clang -Wall -Wextra -Werror -fsanitize=address -o $@ ${OBJS_CUB3D} -L./libft -lft
 
 libft:
 			@echo compiling libft...
