@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 23:41:50 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/14 15:15:37 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/16 21:22:34 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ t_scene	ft_init_scene(void)
 	return (s);
 }
 
-static void	ft_parse_head_handle(int fd, t_scene *scene)
+static void	ft_parse_file_handle(int fd, t_scene *scene)
 {
 	int		result;
 
 	ft_log_info("Parsing scene's head...");
-	result = ft_parse_head(fd, scene);
+	result = ft_parse_file(fd, scene);
 	ft_log_task("Parsing scene's head : ");
 	if (scene->err)
 	{
@@ -76,7 +76,7 @@ t_scene	ft_parse_scene(int fd)
 	t_scene	scene;
 
 	scene = ft_init_scene();
-	ft_parse_head_handle(fd, &scene);
+	ft_parse_file_handle(fd, &scene);
 	ft_check_head(&scene);
 	return (scene);
 }

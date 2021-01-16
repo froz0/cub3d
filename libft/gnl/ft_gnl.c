@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 21:38:49 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/11 15:35:02 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/16 20:51:15 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,7 @@ int	ft_uninitchunk(t_chunk *chunk, int returnval)
 
 int	ft_empty(char **line, t_chunk *tofree)
 {
-	char	*dst;
-
-	dst = malloc(sizeof(char));
-	if (!dst)
-		return (-1);
-	dst[0] = '\0';
-	*line = dst;
+	*line = NULL;
 	return (ft_uninitchunk(tofree, 0));
 }
 
