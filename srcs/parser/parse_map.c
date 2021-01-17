@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 20:11:24 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/16 21:25:05 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/17 13:01:17 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,13 @@ static	void	ft_add_line(t_scene *scene)
 
 void	ft_parse_map_line(char *line, t_scene *scene)
 {
+	static t_bool	used_once = false;
+
+	if (!used_once)
+	{
+		used_once = true;
+		ft_log_info("Parsing the map..");
+	}
 	ft_add_line(scene);
 	(scene->map)[scene->sizey++] = line;
 }
