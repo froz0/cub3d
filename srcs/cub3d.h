@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 16:38:54 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/18 16:27:53 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/18 17:07:44 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 # define CUB3D_H
 
+# include "./typecub.h"
 # include "../libft/libft.h"
 # include "./parser/parser.h"
-# include "./typecub.h"
 #endif
