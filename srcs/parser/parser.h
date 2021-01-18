@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 23:39:38 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/17 23:49:08 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/18 12:54:45 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,5 @@ t_bool	ft_parse_file(int fd, t_scene *scene);
 void	ft_exit_str(char *strerror, t_scene *scene, int errno);
 void	ft_parse_map_line(char *line, t_scene *scene);
 void	ft_balance_map(t_scene *scene);
+void	ft_displaymap_error(int posx, int posy, t_scene *scene);
 #endif

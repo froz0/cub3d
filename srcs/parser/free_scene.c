@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 13:48:41 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/17 23:51:54 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/18 12:58:34 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static	void	ft_free_map(t_scene *scene)
 	i = 0;
 	while (i < scene->sizey)
 	{
-		ft_printf("%i: |%s|\n", i, scene->map[i]);
 		free(scene->map[i]);
 		i++;
 	}
