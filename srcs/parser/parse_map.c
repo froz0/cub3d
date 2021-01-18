@@ -6,23 +6,12 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 20:11:24 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/17 23:57:59 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/18 16:04:27 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 #include "errno.h"
-
-int	ft_ismapchar(int c)
-{
-	char	*charset;
-
-	charset = "102";
-	if (ft_christr(charset, c) == -1)
-		return (0);
-	else
-		return (1);
-}
 
 static	void	ft_add_line(t_scene *scene)
 {

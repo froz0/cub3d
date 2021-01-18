@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 23:39:38 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/18 12:54:45 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/18 16:28:01 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,8 @@
 
 # include "../cub3d.h"
 
-typedef struct s_rgb
-{
-	int	r;
-	int	g;
-	int	b;
-}	t_rgb;
-
-typedef struct s_scene
-{
-	int		err;
-	int		x_scr;
-	int		y_scr;
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
-	char	*s;
-	t_rgb	f;
-	t_rgb	c;
-	int		sizex;
-	int		sizey;
-	char	**map;
-}	t_scene;
-
 t_scene	ft_parse_scene(int fd);
 t_rgb	ft_init_rgb(int r, int g, int b);
-int		ft_ismapchar(int c);
 void	ft_free_scene(t_scene *scene);
 void	ft_parse_r(char *line, t_scene *scene);
 t_rgb	ft_parse_rgb(char *line);
@@ -52,5 +27,8 @@ t_bool	ft_parse_file(int fd, t_scene *scene);
 void	ft_exit_str(char *strerror, t_scene *scene, int errno);
 void	ft_parse_map_line(char *line, t_scene *scene);
 void	ft_balance_map(t_scene *scene);
-void	ft_displaymap_error(int posx, int posy, t_scene *scene);
+void	ft_check_map(t_scene *scene);
+t_bool	ft_ismapchar(int c);
+t_bool	ft_should_surround(int c);
+t_bool	ft_ischarok(char c);
 #endif

@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 14:00:57 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/17 23:47:02 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/18 15:33:46 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int	main(int argc, char **argv)
 		ft_log_error(strerror(errno));
 		exit(errno);
 	}
-	ft_log_info("Parsing the scene...");
 	scene = ft_parse_scene(args.fd);
 	ft_free_scene(&scene);
 	close(args.fd);

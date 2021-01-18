@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 23:41:50 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/18 13:03:44 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/18 16:35:40 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_scene	ft_init_scene(void)
 	s.sizex = 0;
 	s.sizey = 0;
 	s.map = 0;
+	s.player.x = -1;
 	return (s);
 }
 
@@ -82,6 +83,6 @@ t_scene	ft_parse_scene(int fd)
 	ft_balance_map(&scene);
 	ft_log_task("Balancing map: ");
 	ft_log_ok(true);
-	ft_displaymap_error(15, 3, &scene);
+	ft_check_map(&scene);
 	return (scene);
 }
