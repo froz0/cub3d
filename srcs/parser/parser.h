@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 23:39:38 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/16 21:21:23 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/17 23:49:08 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ t_rgb	ft_parse_rgb(char *line);
 void	ft_parse_texture(char **path, char *line);
 void	ft_check_head(t_scene *scene);
 t_bool	ft_parse_file(int fd, t_scene *scene);
+void	ft_exit_str(char *strerror, t_scene *scene, int errno);
 void	ft_parse_map_line(char *line, t_scene *scene);
+void	ft_balance_map(t_scene *scene);
 #endif

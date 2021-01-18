@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 23:41:50 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/16 21:22:34 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/18 00:01:45 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ static void	ft_parse_file_handle(int fd, t_scene *scene)
 {
 	int		result;
 
-	ft_log_info("Parsing scene's head...");
+	ft_log_info("Reading scene's file..");
 	result = ft_parse_file(fd, scene);
-	ft_log_task("Parsing scene's head : ");
+	ft_log_task("Reading scene's file: ");
 	if (scene->err)
 	{
 		ft_free_scene(scene);
@@ -78,5 +78,9 @@ t_scene	ft_parse_scene(int fd)
 	scene = ft_init_scene();
 	ft_parse_file_handle(fd, &scene);
 	ft_check_head(&scene);
+	ft_log_info("Balancing map..");
+	ft_balance_map(&scene);
+	ft_log_task("Balancing map: ");
+	ft_log_ok(true);
 	return (scene);
 }

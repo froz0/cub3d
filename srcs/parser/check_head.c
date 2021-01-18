@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 15:30:43 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/13 22:04:59 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/18 00:02:20 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	ft_check_head(t_scene *scene)
 	ft_check_r(scene);
 	ft_check_texture(scene);
 	ft_check_rgb(scene);
-	ft_log_task("Checking the scene's info: ");
+	ft_log_task("Checking the head's info: ");
 	if (scene->err)
 	{
 		ft_log_ok(false);
