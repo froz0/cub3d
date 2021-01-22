@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 16:38:54 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/22 16:22:23 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/22 16:34:48 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 # include "./typecub.h"
 # include "../libft/libft.h"
 # include "./parser/parser.h"
-# include "../minilibx-libft/mlx.h"
+# include "../minilibx-linux/mlx.h"
 
 #endif
