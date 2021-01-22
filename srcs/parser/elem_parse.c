@@ -6,22 +6,35 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 14:12:59 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/13 22:08:04 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/22 15:49:48 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
+#include "limits.h"
+
+static int	ft_basic_atoi(char *str)
+{
+	unsigned int i;
+
+	i = 0;
+	while (*str && ft_isnum(*str))
+		i = i * 10 + (*str++) + 48;
+	if (i > INT_MAX)
+		return (-2);
+	return ((int)i);
+}
 
 void	ft_parse_r(char *line, t_scene *scene)
 {
 	while (ft_isspace(*line))
 		line++;
-	scene->x_scr = ft_atoi(line);
+	scene->x_scr = ft_basic_atoi(line);
 	while (ft_isnum(*line))
 		line++;
 	while (ft_isspace(*line))
 		line++;
-	scene->y_scr = ft_atoi(line);
+	scene->y_scr = ft_basic_atoi(line);
 }
 
 static	int	ft_skip(char **line)
