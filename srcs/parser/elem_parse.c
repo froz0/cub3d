@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 14:12:59 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/22 15:49:48 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/24 14:34:33 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_basic_atoi(char *str)
 
 	i = 0;
 	while (*str && ft_isnum(*str))
-		i = i * 10 + (*str++) + 48;
+		i = i * 10 + ((*str++) - 48);
 	if (i > INT_MAX)
 		return (-2);
 	return ((int)i);
@@ -71,11 +71,11 @@ t_rgb	ft_parse_rgb(char *line)
 		line++;
 	if (!ft_isnum(*line))
 		error += 1;
-	r = ft_atoi(line);
+	r = ft_basic_atoi(line);
 	error += ft_skip(&line);
-	g = ft_atoi(line);
+	g = ft_basic_atoi(line);
 	error += ft_skip(&line);
-	b = ft_atoi(line);
+	b = ft_basic_atoi(line);
 	if (error)
 		return (ft_init_rgb(-2, -2, -2));
 	else

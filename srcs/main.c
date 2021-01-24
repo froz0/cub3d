@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 14:00:57 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/18 15:33:46 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/24 14:08:26 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int	main(int argc, char **argv)
 		exit(errno);
 	}
 	scene = ft_parse_scene(args.fd);
+	ft_graphic_handle(scene);
 	ft_free_scene(&scene);
 	close(args.fd);
 }
