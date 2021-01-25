@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:21:25 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/18 16:34:41 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/25 22:04:45 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,12 @@ typedef struct s_scene
 	char		**map;
 	t_player	player;
 }			t_scene;
+
+typedef struct s_to_free
+{
+	void	*mlx;
+	void	*win;
+	t_scene	*scene;
+}		t_to_free;
 
 #endif
