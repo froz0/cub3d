@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 14:08:32 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/26 14:57:09 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/26 16:08:01 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,35 @@ static int	ft_event_exit(t_game_state *game_state)
 	ft_clear_memory(game_state);
 	return (0);
 }
+
+static	int	ft_nextframe(t_game_state *game_state)
+{
+	t_frame frame;
+
+	frame = ft_render_frame(*game_state);
+    mlx_put_image_to_window(game_state->mlx, game_state->win, frame.img, 0, 0);
+	mlx_destroy_image(game_state->mlx, frame.img);
+	return (0);
+}
+
 void	ft_graphic_handle(t_scene *scene)
 {
-	void		*mlx;
-	void		*win;
 	t_game_state	game_state;
 
-	mlx = mlx_init();
-	if (!mlx)
+	game_state.mlx = mlx_init();
+	if (!game_state.mlx)
 		ft_exit_str("Failed to connect to X server", scene, 5);
-	win = mlx_new_window(mlx, scene->x_scr, scene->y_scr, "Cub3d");
-	if (!win)
+	game_state.win = mlx_new_window(game_state.mlx, scene->x_scr,
+			scene->y_scr, "Cub3d");
+	if (!game_state.win)
 	{
-		mlx_destroy_display(mlx);
+		mlx_destroy_display(game_state.mlx);
+		free(game_state.mlx);
 		ft_exit_str("Failed to create the window", scene, 6);
 	}
-	game_state.win = win;
-	game_state.mlx = mlx;
 	game_state.scene = scene;
-	mlx_hook(win, 33, 0, ft_event_exit, &game_state);
-	mlx_hook(win, 2, 1L, ft_event_key, &game_state);
-	mlx_loop(mlx);
+	mlx_hook(game_state.win, 33, 0, ft_event_exit, &game_state);
+	mlx_hook(game_state.win, 2, 1L, ft_event_key, &game_state);
+    mlx_loop_hook(game_state.mlx, ft_nextframe, &game_state);
+	mlx_loop(game_state.mlx);
 }

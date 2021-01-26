@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:21:25 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/26 14:54:32 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/26 15:29:33 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@
 ** fd: store the fd returned from the open() -1 if error
 ** save: 0 if --save is absent 1 if it is here
 */
+
+typedef struct s_frame {
+    void	*img;
+    char	*addr;
+    int		bits_per_pixel;
+    int		line_length;
+    int		endian;
+}	t_frame;
+
 
 typedef struct s_args
 {
