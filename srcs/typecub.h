@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:21:25 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/26 15:29:33 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/26 19:13:51 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_player
 {
 	int		x;
 	int		y;
-	float	o;
+	int		dir;
 }	t_player;
 
 typedef struct s_scene
@@ -67,11 +67,17 @@ typedef struct s_scene
 	t_player	player;
 }			t_scene;
 
-typedef struct s_game_state
+typedef struct s_game
 {
 	void	*mlx;
 	void	*win;
+	double	player_x;
+	double	player_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
 	t_scene	*scene;
-}		t_game_state;
+}		t_game;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:59:14 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/26 16:33:57 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/26 23:52:55 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,10 @@ static	void	ft_render_line(t_frame *frame, int x, int y, int color)
 
 	i = 0;
 	while (i < x)
-	{
-		ft_frame_pixel(frame, i, y, color);
-		i++;
-	}
+		ft_frame_pixel(frame, i++, y, color);
 }
 
-void	ft_render_cf(t_game_state gs, t_frame *frame)
+void	ft_render_cf(t_game gs, t_frame *frame)
 {
 	int color_c;
 	int color_f;
@@ -47,14 +44,15 @@ void	ft_render_cf(t_game_state gs, t_frame *frame)
 		ft_render_line(frame, gs.scene->x_scr, y++, color_f);
 }
 
-t_frame	ft_render_frame(t_game_state game_state)
+t_frame	ft_render_frame(t_game game)
 {
 	t_frame	frame;
 
-	frame.img = mlx_new_image(game_state.mlx, game_state.scene->x_scr,
-			game_state.scene->y_scr);
-	frame.addr = mlx_get_data_addr(frame.img, &frame.bits_per_pixel, &frame.line_length,
-			&frame.endian);
-	ft_render_cf(game_state, &frame);
+	frame.img = mlx_new_image(game.mlx, game.scene->x_scr,
+			game.scene->y_scr);
+	frame.addr = mlx_get_data_addr(frame.img, &frame.bits_per_pixel,
+			&frame.line_length, &frame.endian);
+	ft_render_cf(game, &frame);
+	ft_render_raycast(&frame, &game);
 	return (frame);
 }

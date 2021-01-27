@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/08 16:43:44 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/26 22:37:34 by tmatis           ###   ########.fr       */
+/*   Created: 2021/01/26 19:01:23 by tmatis            #+#    #+#             */
+/*   Updated: 2021/01/26 19:06:01 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
+#include "graphic.h"
 
-# define LIBFT_H
+int	ft_event_key(unsigned int key, t_game *game)
+{
+	ft_printf("key pressed: %#x\n", key);
+	if (key == 0xff1b)
+		ft_clear_memory(game);
+	return (0);
+}
 
-# include "typedef.h"
-# include "assert/assert.h"
-# include "char/char.h"
-# include "lst/lst.h"
-# include "memory/memory.h"
-# include "misc/misc.h"
-# include "string/string.h"
-# include "wstring/wstring.h"
-# include "put/put.h"
-# include "gnl/ft_gnl.h"
-# include "printf/printf.h"
-# include "log/log.h"
-# include "maths/maths.h"
-
-#endif
+int	ft_event_exit(t_game *game)
+{
+	ft_clear_memory(game);
+	return (0);
+}

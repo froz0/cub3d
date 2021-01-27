@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/01/11 15:21:49 by tmatis           ###   ########.fr        #
+#    Updated: 2021/01/26 22:36:30 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,8 @@ SRCS_WSTRING	= ft_wstr_strlen.c ft_wstrlen.c ft_wstrnlen.c ft_wstrtostr.c
 
 SRCS_LOG		= ft_log.c
 
+SRCS_MATHS		= maths.c
+
 OBJS_ASSERT		= $(addprefix assert/, ${SRCS_ASSERT:.c=.o})
 OBJS_CHAR		= $(addprefix char/, ${SRCS_CHAR:.c=.o})
 OBJS_LST		= $(addprefix lst/, ${SRCS_LST:.c=.o})
@@ -60,6 +62,7 @@ OBJS_WSTRING	= $(addprefix wstring/, ${SRCS_WSTRING:.c=.o})
 OBJS_GNL		= $(addprefix gnl/, ${SRCS_GNL:.c=.o})
 OBJS_PRINTF 	= $(addprefix printf/, ${SRCS_PRINTF:.c=.o})
 OBJS_LOG	 	= $(addprefix log/, ${SRCS_LOG:.c=.o})
+OBJS_MATHS	 	= $(addprefix maths/, ${SRCS_MATHS:.c=.o})
 NAME			= libft.a
 
 .c.o:
@@ -68,7 +71,7 @@ NAME			= libft.a
 
 $(NAME):	${OBJS_ASSERT} ${OBJS_CHAR} ${OBJS_LST} ${OBJS_MEMORY} \
 			${OBJS_MISC} ${OBJS_PUT} ${OBJS_STRING} ${OBJS_WSTRING} \
-			${OBJS_GNL} ${OBJS_PRINTF} ${OBJS_LOG} 
+			${OBJS_GNL} ${OBJS_PRINTF} ${OBJS_LOG} ${OBJS_MATHS} 
 			@echo Linking library...
 			@ar -rcs  $@ $^
 
@@ -78,7 +81,7 @@ clean:
 			@echo CLeaning OBJS 
 			@rm -f ${OBJS_ASSERT} ${OBJS_CHAR} ${OBJS_LST} ${OBJS_MEMORY} \
 			${OBJS_MISC} ${OBJS_PUT} ${OBJS_STRING} ${OBJS_WSTRING} \
-			${OBJS_GNL} ${OBJS_PRINTF} ${OBJS_LOG}
+			${OBJS_GNL} ${OBJS_PRINTF} ${OBJS_LOG} ${OBJS_MATHS} 
  
 fclean:		clean
 			@echo CLeaning library...
