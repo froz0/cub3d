@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 18:37:21 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/27 00:19:58 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/27 16:13:18 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 void	ft_render_raycast(t_frame *frame, t_game *game)
 {
-	double	posx = 2;
-	double	posy = 2;
-	double	dirx = 1;
-	double	diry = 0.5;
+	double	posx = game->posx;
+	double	posy = game->posy;
+	double	dirx = game->dirx;
+	double	diry = game->diry;
 	double	planex = 0;
 	double	planey = 0.66;
 	int		w = game->scene->x_scr;
@@ -42,7 +42,7 @@ void	ft_render_raycast(t_frame *frame, t_game *game)
 	int		drawstart;
 	int		drawend;
 	int		color;
-
+	int		i;
 	x = 0;
 	while (x < w)
 	{
@@ -116,16 +116,13 @@ void	ft_render_raycast(t_frame *frame, t_game *game)
 		if (drawend >= h)
 			drawend = h - 1;
 		if (side == 1)
-			color = ft_trgb(0 , 180, 180, 180);
+			color = ft_trgb(0 , 100, 100, 100);
 		else
-			color = ft_trgb(0 , 80, 80, 80);
+			color = ft_trgb(0 , 130, 130, 130);
 
-		int	i = drawstart;
+		i = drawstart;
 		while (i < drawend)
-		{
-			ft_frame_pixel(frame, x, i, color);
-			i++;
-		}
+			ft_frame_pixel(frame, x, i++, color);
 		x++;
 	}
 }

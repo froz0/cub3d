@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:21:25 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/26 19:13:51 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/27 13:18:40 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 # define TYPECUB_H
 
+# include "cub3d.h"
 /*
 ** t_args is used to store information about the args
 ** fd: store the fd returned from the open() -1 if error
@@ -71,12 +72,16 @@ typedef struct s_game
 {
 	void	*mlx;
 	void	*win;
-	double	player_x;
-	double	player_y;
-	double	dir_x;
-	double	dir_y;
-	double	plane_x;
-	double	plane_y;
+	double	posx;
+	double	posy;
+	double	dirx;
+	double	diry;
+	double	planex;
+	double	planey;
+	t_bool	w;
+	t_bool	a;
+	t_bool	s;
+	t_bool	d;
 	t_scene	*scene;
 }		t_game;
 
