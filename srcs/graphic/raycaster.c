@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 18:37:21 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/26 23:56:29 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/27 00:19:58 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	ft_render_raycast(t_frame *frame, t_game *game)
 {
-	double	posx = 20;
-	double	posy = 7;
+	double	posx = 2;
+	double	posy = 2;
 	double	dirx = 1;
 	double	diry = 0.5;
 	double	planex = 0;
@@ -99,6 +99,8 @@ void	ft_render_raycast(t_frame *frame, t_game *game)
 				mapy += stepy;
 				side = 1;
 			}
+			//ft_printf("x: %i, mapx: %i, mapy: %i\nchar '%c'\n", x, mapx, mapy,
+			//		game->scene->map[mapy][mapx]);
 			if (game->scene->map[mapy][mapx] == '1')
 				hit = 1;
 		}
