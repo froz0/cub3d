@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/01/29 15:56:22 by tmatis           ###   ########.fr        #
+#    Updated: 2021/01/29 16:50:38 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ OBJS_CUB3D	= $(addprefix srcs/, ${SRCS_CUB3D:.c=.o})
 
 $(NAME):	libft mlx ${OBJS_CUB3D}
 			@echo Linking program...
-			@clang -Wall -Wextra -Werror -o $@ ${OBJS_CUB3D} -lXext -lX11 -lm -lbsd -L./libft -lft -L./minilibx-linux -lmlx
+			@clang -Wall -Wextra -Werror -o $@ ${OBJS_CUB3D} -lXext -lX11 -lm -L./libft -lft -L./minilibx-linux -lmlx
 mlx:
 			@echo Compling mlx...
 			@make -sC ./minilibx-linux
