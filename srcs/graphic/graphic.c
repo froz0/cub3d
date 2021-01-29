@@ -6,13 +6,12 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20.05/01/24 14:08:32 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/27 16:01:56 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/29 01:40:21 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "graphic.h"
 #include <errno.h>
-#include <math.h>
 
 void	ft_clear_memory(t_game *game)
 {
@@ -23,52 +22,13 @@ void	ft_clear_memory(t_game *game)
 	exit(0);
 }
 
-static	void	ft_handle_keys(t_game *game)
-{
-	double	posy;
-	double	posx;
-	double	dirx;
-	double	diry;
-
-	posy = game->posy;
-	posx = game->posx;
-	dirx = game->dirx;
-	diry = game->diry;
-	if (game->w)
-	{
-		if (game->scene->map[(int)posy][(int)(posx + dirx * (0.05 * 2))] != '1')
-			game->posx += dirx * 0.05;
-		if (game->scene->map[(int)(posy + diry * 0.05)][(int)posx] != '1')
-			game->posy += diry * 0.05;
-	}
-	else if (game->s)
-	{
-		if (game->scene->map[(int)posy][(int)(posx - dirx * (0.05 * 2))] != '1')
-			game->posx -= dirx * 0.05;
-		if (game->scene->map[(int)(posy - diry * 0.05)][(int)posx] != '1')
-			game->posy -= diry * 0.05;
-	}
-	if (game->d)
-	{
-		if (game->scene->map[(int)posy][(int)(posx + diry * (0.05 * 2))] != '1')
-			game->posx += diry * 0.05;
-		if (game->scene->map[(int)(posy - dirx * (0.05 * 2))][(int)posx] != '1')
-			game->posy -= dirx * 0.05;
-	}
-	else if (game->a)
-	{
-		if (game->scene->map[(int)posy][(int)(posx - diry * (0.05 * 2))] != '1')
-			game->posx -= diry * 0.05;
-		if (game->scene->map[(int)(posy + dirx * (0.05 * 2))][(int)posx] != '1')
-			game->posy += dirx * 0.05;
-	}
-}
-
 static	int	ft_nextframe(t_game *game)
 {
 	t_frame frame;
 
-	ft_handle_keys(game);
+	ft_walk(game);
+	ft_straft(game);
+	ft_rotate(game);
 	frame = ft_render_frame(game);
     mlx_put_image_to_window(game->mlx, game->win, frame.img, 0, 0);
 	mlx_destroy_image(game->mlx, frame.img);
@@ -91,6 +51,8 @@ t_game	ft_init_game(t_scene *scene)
 	game.a = false;
 	game.s = false;
 	game.d = false;
+	game.right = false;
+	game.left = false;
 	return (game);
 }
 

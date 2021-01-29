@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:21:25 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/27 13:18:40 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/28 16:34:56 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ typedef struct s_game
 	t_bool	a;
 	t_bool	s;
 	t_bool	d;
+	t_bool	left;
+	t_bool	right;
 	t_scene	*scene;
 }		t_game;
 

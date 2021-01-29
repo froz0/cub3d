@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 18:37:21 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/27 16:13:18 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/28 16:43:42 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_render_raycast(t_frame *frame, t_game *game)
 	double	posy = game->posy;
 	double	dirx = game->dirx;
 	double	diry = game->diry;
-	double	planex = 0;
-	double	planey = 0.66;
+	double	planex = game->planex;
+	double	planey = game->planey;
 	int		w = game->scene->x_scr;
 	int		h = game->scene->y_scr;
 	int		x;
