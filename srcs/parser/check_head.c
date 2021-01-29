@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 15:30:43 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/22 15:48:10 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/29 16:58:18 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ static void	ft_check_r(t_scene *scene)
 	}
 	if (scene->x_scr < 2)
 		ft_log_error("R x is < 2, error");
-	if (scene->x_scr < 2)
+	if (scene->y_scr < 2)
 		ft_log_error("R y is < 2, error");
 	if (scene->x_scr == -2)
 	{
 		ft_log_error("Problem with R");
 		scene->err = 1;
 	}
-	if (scene->x_scr < 2 || scene->x_scr < 2)
+	if (scene->x_scr < 2 || scene->y_scr < 2)
 		scene->err = 1;
 }
 

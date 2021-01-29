@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 18:37:21 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/29 16:37:00 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/29 16:54:44 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,10 @@ void	ft_render_raycast(t_game *game)
 		camerax = 2 * x / (double)w - 1;
 		raydirx = dirx + planex * camerax;
 		raydiry = diry + planey * camerax;
-		mapx = floor(posx);
-		mapy = floor(posy);
+		mapx = (int)posx;
+		mapy = (int)posy;
+		deltadistx = fabs(1 / raydirx);
 		deltadisty = fabs(1 / raydiry);
-		if (raydiry == 0)
-			deltadistx = 0;
-		else if (raydirx == 0)
-			deltadistx = 1;
-		else
-			deltadistx = fabs(1 / raydirx);
-		if (raydirx == 0)
-			deltadisty = 0;
-		else if (raydiry == 0)
-			deltadisty = 1;
-		else
-			deltadisty = fabs(1 / raydiry);
 		if (raydirx < 0)
 		{
 			stepx = -1;
@@ -117,7 +106,6 @@ void	ft_render_raycast(t_game *game)
 			color = ft_trgb(0 , 100, 100, 100);
 		else
 			color = ft_trgb(0 , 130, 130, 130);
-
 		i = drawstart;
 		while (i < drawend)
 			ft_frame_pixel(game->frame, x, i++, color);

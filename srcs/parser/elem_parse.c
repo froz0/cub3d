@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 14:12:59 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/29 15:26:41 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/29 16:59:51 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,11 @@ static	int	ft_skip(char **line)
 		(*line)++;
 	while (ft_isspace(**line))
 		(*line)++;
-	if (**line == ',' && ++vir)
+	if (**line == ',')
+	{
+		vir = 1;
 		(*line)++;
+	}
 	while (ft_isspace(**line))
 		(*line)++;
 	if (**line == ',' && !vir)
