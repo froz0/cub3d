@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 14:52:20 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/29 15:33:51 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/29 16:30:17 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,10 @@ t_texture	ft_load_texture(char *path, t_game *game)
 			&frame.line_length, &frame.endian);
 	text.frame = frame;
 	return (text);
+}
+
+void	ft_clear_texture(t_game *game)
+{
+	mlx_destroy_image(game->mlx, game->we_text.frame.img);
+	ft_clear_memory(game);
 }

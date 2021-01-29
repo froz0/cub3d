@@ -6,14 +6,14 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 18:37:21 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/29 15:35:05 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/29 16:37:00 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "graphic.h"
 #include <math.h>
 
-void	ft_render_raycast(t_frame frame, t_game *game)
+void	ft_render_raycast(t_game *game)
 {
 	double	posx = game->posx;
 	double	posy = game->posy;
@@ -120,7 +120,7 @@ void	ft_render_raycast(t_frame frame, t_game *game)
 
 		i = drawstart;
 		while (i < drawend)
-			ft_frame_pixel(frame, x, i++, color);
+			ft_frame_pixel(game->frame, x, i++, color);
 		x++;
 	}
 }

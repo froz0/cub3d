@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 19:01:23 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/28 17:01:51 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/29 16:41:13 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_event_key(unsigned int key, t_game *game)
 {
 	if (key == 0xff1b)
-		ft_clear_memory(game);
+		ft_clear_frame(game);
 	else if (key == 0x77)
 		game->w = true;
 	else if (key == 0x73)
@@ -47,12 +47,5 @@ int	ft_event_key_release(unsigned int key, t_game *game)
 		game->right = false;
 	else if (key == 0xff51)
 		game->left = false;
-	return (0);
-}
-
-
-int	ft_event_exit(t_game *game)
-{
-	ft_clear_memory(game);
 	return (0);
 }
