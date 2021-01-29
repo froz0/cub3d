@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 18:37:21 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/29 16:54:44 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/29 19:34:05 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,15 @@ void	ft_render_raycast(t_game *game)
 	int		drawstart;
 	int		drawend;
 	int		color;
-	int		i;
+	int		y;
+	double	wallx;
+	double	texx;
+	int		texwidth = game->we_text.width;
+	int		texheight = game->we_text.height;
+	double	step;
+	double	texpos;
+	double	texy;
+
 	x = 0;
 	while (x < w)
 	{
@@ -102,13 +110,35 @@ void	ft_render_raycast(t_game *game)
 		drawend = lineheight / 2 + h / 2;
 		if (drawend >= h)
 			drawend = h - 1;
-		if (side == 1)
+		/*if (side == 1)
 			color = ft_trgb(0 , 100, 100, 100);
 		else
 			color = ft_trgb(0 , 130, 130, 130);
 		i = drawstart;
 		while (i < drawend)
 			ft_frame_pixel(game->frame, x, i++, color);
+			*/
+		if (side == 0)
+			wallx = posy + perpwalldist * raydiry;
+		else
+			wallx = posx + perpwalldist * raydirx;
+		wallx -= floor((wallx));
+		texx = (int)(wallx * (double)texwidth);
+		if (side == 0 && raydirx > 0)
+			texx = texwidth - texx;
+		if (side == 1 && raydiry < 0)
+			texx = texwidth - texx;
+		step = 1.0 * texheight / lineheight;
+		texpos = (drawstart - h / 2 + lineheight / 2) * step;
+		y = drawstart;
+		while (y < drawend)
+		{
+			texy = (int)texpos & (texheight - 1);
+			texpos += step;
+			color = ft_get_pixel(game->we_text.frame, texx, texy);
+			ft_frame_pixel(game->frame, x, y, color);
+			y++;
+		}
 		x++;
 	}
 }
