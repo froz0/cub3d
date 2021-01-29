@@ -6,19 +6,11 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:59:14 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/27 13:16:49 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/29 14:55:27 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "graphic.h"
-
-void	ft_frame_pixel(t_frame *frame, int x, int y, int color)
-{
-	char	*dst;
-
-    dst = frame->addr + (y * frame->line_length + x * (frame->bits_per_pixel / 8));
-    *(unsigned int*)dst = color;
-}
 
 static	void	ft_render_line(t_frame *frame, int x, int y, int color)
 {

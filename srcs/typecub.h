@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:21:25 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/28 16:34:56 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/29 15:21:30 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 ** save: 0 if --save is absent 1 if it is here
 */
 
-typedef struct s_frame {
+typedef struct s_frame
+{
     void	*img;
     char	*addr;
     int		bits_per_pixel;
@@ -68,23 +69,31 @@ typedef struct s_scene
 	t_player	player;
 }			t_scene;
 
+typedef struct s_texture
+{
+	t_frame	frame;
+	int		width;
+	int		height;
+}		t_texture;
+
 typedef struct s_game
 {
-	void	*mlx;
-	void	*win;
-	double	posx;
-	double	posy;
-	double	dirx;
-	double	diry;
-	double	planex;
-	double	planey;
-	t_bool	w;
-	t_bool	a;
-	t_bool	s;
-	t_bool	d;
-	t_bool	left;
-	t_bool	right;
-	t_scene	*scene;
+	void		*mlx;
+	void		*win;
+	double		posx;
+	double		posy;
+	double		dirx;
+	double		diry;
+	double		planex;
+	double		planey;
+	t_bool		w;
+	t_bool		a;
+	t_bool		s;
+	t_bool		d;
+	t_bool		left;
+	t_bool		right;
+	t_scene		*scene;
+	t_texture	we_text;
 }		t_game;
 
 #endif

@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/01/29 01:40:35 by tmatis           ###   ########.fr        #
+#    Updated: 2021/01/29 15:22:37 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS_CUB3D	= main.c parser/parser.c parser/parse_head.c parser/parse_map.c \
 			  parser/free_scene.c parser/elem_parse.c parser/check_head.c \
 			  parser/check_map.c parser/map_utils.c graphic/graphic.c\
 			  graphic/render.c graphic/rgb.c graphic/events.c \
-			  graphic/raycaster.c graphic/move.c
+			  graphic/raycaster.c graphic/move.c graphic/image.c
 
 
 OBJS_CUB3D	= $(addprefix srcs/, ${SRCS_CUB3D:.c=.o})

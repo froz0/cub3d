@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 14:12:59 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/24 14:34:33 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/29 15:26:41 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	ft_parse_texture(char **path, char *line)
 	else
 		i = 0;
 	if (!*path)
-		*path = ft_strtrim(&line[i], " \t\v");
+		*path = ft_strtrim(&line[i + 1], " \t\v");
 	else
 	{
 		ft_putstr_fd("\n[\033[0;33mWARN\x1b[0m]", 2);

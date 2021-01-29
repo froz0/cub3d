@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20.05/01/24 14:08:32 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/29 01:40:21 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/29 15:24:20 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ t_game	ft_init_game(t_scene *scene)
 {
 	t_game	game;
 
-	game.posx = scene->player.x;
-	game.posy = scene->player.y;
+	game.posx = scene->player.x + 0.5;
+	game.posy = scene->player.y + 0.5;
 	game.mlx = NULL;
 	game.win = NULL;
 	game.dirx = -1;
@@ -58,7 +58,7 @@ t_game	ft_init_game(t_scene *scene)
 
 void	ft_graphic_handle(t_scene *scene)
 {
-	t_game	game;
+	t_game		game;
 
 	game = ft_init_game(scene);
 	game.mlx = mlx_init();
@@ -73,6 +73,7 @@ void	ft_graphic_handle(t_scene *scene)
 		ft_exit_str("Failed to create the window", scene, 6);
 	}
 	game.scene = scene;
+	game.we_text = ft_load_texture(scene->we, &game);
 	mlx_hook(game.win, 33, 0, ft_event_exit, &game);
 	mlx_hook(game.win, 2, 1L, ft_event_key, &game);
 	mlx_hook(game.win, 3, 1L<<1, ft_event_key_release, &game);
