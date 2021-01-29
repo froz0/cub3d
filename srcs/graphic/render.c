@@ -6,13 +6,13 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:59:14 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/29 14:55:27 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/29 15:37:30 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "graphic.h"
 
-static	void	ft_render_line(t_frame *frame, int x, int y, int color)
+static	void	ft_render_line(t_frame frame, int x, int y, int color)
 {
 	int	i;
 
@@ -21,7 +21,7 @@ static	void	ft_render_line(t_frame *frame, int x, int y, int color)
 		ft_frame_pixel(frame, i++, y, color);
 }
 
-void	ft_render_cf(t_game *gs, t_frame *frame)
+void	ft_render_cf(t_game *gs, t_frame frame)
 {
 	int color_c;
 	int color_f;
@@ -44,7 +44,7 @@ t_frame	ft_render_frame(t_game *game)
 			game->scene->y_scr);
 	frame.addr = mlx_get_data_addr(frame.img, &frame.bits_per_pixel,
 			&frame.line_length, &frame.endian);
-	ft_render_cf(game, &frame);
-	ft_render_raycast(&frame, game);
+	ft_render_cf(game, frame);
+	ft_render_raycast(frame, game);
 	return (frame);
 }
