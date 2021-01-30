@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 12:30:52 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/30 01:37:10 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/30 13:28:44 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ static	t_bool	ft_player_pos(int posx, int posy, t_scene *scene)
 		{
 			scene->player.x = posy;
 			scene->player.y = posx;
+			scene->dir = c;
 			return (true);
 		}
 		return (false);

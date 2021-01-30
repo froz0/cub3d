@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:21:25 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/29 20:53:20 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/30 13:26:31 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_scene
 	char		*we;
 	char		*ea;
 	char		*s;
+	char		dir;
 	t_rgb		f;
 	t_rgb		c;
 	int			sizex;

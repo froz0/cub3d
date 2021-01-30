@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 14:03:53 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/29 21:00:27 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/30 13:33:43 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,5 @@ int			ft_event_key_release(unsigned int key, t_game *game);
 void		ft_walk(t_game *g);
 void		ft_straft(t_game *g);
 void		ft_rotate(t_game *g);
+void		ft_set_dir(t_game *game);
 #endif

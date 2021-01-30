@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 01:23:51 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/30 01:58:45 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/30 14:18:50 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,29 @@ void	ft_rotate(t_game *g)
 		oldplanex = g->planex;
 		g->planex = g->planex * cos(RS) - g->planey * sin(RS);
 		g->planey = oldplanex * sin(RS) + g->planey * cos(RS);
+	}
+}
+
+void	ft_set_dir(t_game *game)
+{
+	if (game->scene->dir == 'N')
+	{
+		game->dirx = -1.0;
+		game->planey = 0.66;
+	}
+	else if (game->scene->dir == 'S')
+	{
+		game->dirx = 1.0;
+		game->planey = -0.66;
+	}
+	else if (game->scene->dir == 'W')
+	{
+		game->diry = -1.0;
+		game->planex = -0.66;
+	}
+	else
+	{
+		game->diry = 1.0;
+		game->planex = 0.66;
 	}
 }
