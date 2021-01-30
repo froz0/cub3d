@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 18:37:21 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/30 02:02:33 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/30 20:22:20 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	ft_render_raycast(t_game *game)
 	double	step;
 	double	texpos;
 	double	texy;
+	
 	x = 0;
 	while (x < w)
 	{
@@ -140,9 +141,9 @@ void	ft_render_raycast(t_game *game)
 			tex = game->ea_text;
 		texx = (int)(wallx * (double)tex.width);
 		if (walln < 2 && raydirx > 0)
-			texx = tex.width - texx;
+			texx = tex.width - texx - 1;
 		if (walln > 1 && raydiry < 0)
-			texx = tex.width - texx;
+			texx = tex.width - texx - 1;
 		step = 1.0 * tex.height / lineheight;
 		texpos = (drawstart - h / 2 + lineheight / 2) * step;
 		y = drawstart;
