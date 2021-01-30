@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 14:03:53 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/30 13:33:43 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/30 20:14:18 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,5 @@ void		ft_walk(t_game *g);
 void		ft_straft(t_game *g);
 void		ft_rotate(t_game *g);
 void		ft_set_dir(t_game *game);
+void		ft_init_zbuffer(t_game *game);
 #endif

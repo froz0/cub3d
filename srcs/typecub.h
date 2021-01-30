@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:21:25 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/30 13:26:31 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/30 19:47:15 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ typedef struct s_game
 	t_texture	so_text;
 	t_texture	we_text;
 	t_texture	ea_text;
+	t_texture	sprite;
+	double		*zbuffer;
 	t_frame		frame;
 }		t_game;
 

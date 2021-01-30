@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 01:23:51 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/30 14:18:50 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/30 20:14:35 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,5 @@ void	ft_set_dir(t_game *game)
 		game->diry = 1.0;
 		game->planex = 0.66;
 	}
+	ft_init_zbuffer(game);
 }

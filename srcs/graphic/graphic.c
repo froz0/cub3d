@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20.05/01/24 14:08:32 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/30 14:29:50 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/30 20:18:31 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,13 @@
 void	ft_clear_memory(t_game *game)
 {
 	ft_free_scene(game->scene);
-	mlx_destroy_window(game->mlx, game->win);
-	mlx_destroy_display(game->mlx);
-	free(game->mlx);
+	if (game->win)
+		mlx_destroy_window(game->mlx, game->win);
+	if (game->mlx)
+	{
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+	}
 	exit(0);
 }
 
@@ -34,6 +38,8 @@ int		ft_clear_frame(t_game *game)
 		mlx_destroy_image(game->mlx, game->ea_text.frame.img);
 	if (game->so_text.frame.img)
 		mlx_destroy_image(game->mlx, game->so_text.frame.img);
+	if (game->sprite.frame.img)
+		mlx_destroy_image(game->mlx, game->sprite.frame.img);
 	ft_clear_memory(game);
 	return (0);
 }
@@ -61,7 +67,6 @@ t_game	ft_init_game(t_scene *scene)
 	game.diry = 0;
 	game.planey = 0;
 	game.planex = 0;
-	ft_set_dir(&game);
 	game.w = false;
 	game.a = false;
 	game.s = false;
@@ -71,8 +76,10 @@ t_game	ft_init_game(t_scene *scene)
 	game.we_text.frame.img = NULL;
 	game.ea_text.frame.img = NULL;
 	game.so_text.frame.img = NULL;
-	game.we_text.frame.img = NULL;
+	game.no_text.frame.img = NULL;
+	game.sprite.frame.img = NULL;
 	game.frame.img = NULL;
+	ft_set_dir(&game);
 	return (game);
 }
 
@@ -96,6 +103,7 @@ void	ft_graphic_handle(t_scene *scene)
 	game.we_text = ft_load_texture(scene->we, &game);
 	game.ea_text = ft_load_texture(scene->ea, &game);
 	game.so_text = ft_load_texture(scene->so, &game);
+	game.sprite = ft_load_texture(scene->s, &game);
 	game.frame = ft_init_frame(&game);
 	mlx_hook(game.win, 33, 0, ft_clear_frame, &game);
 	mlx_hook(game.win, 2, 1L, ft_event_key, &game);
