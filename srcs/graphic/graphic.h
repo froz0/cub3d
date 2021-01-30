@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 14:03:53 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/29 16:41:45 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/29 21:00:27 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # define RS 0.03
 
 void		ft_clear_memory(t_game *game);
-void		ft_clear_texture(t_game *game);
 int			ft_clear_frame(t_game *game);
 void		ft_frame_pixel(t_frame f, int x, int y, int color);
 UINT		ft_get_pixel(t_frame f, int x, int y);

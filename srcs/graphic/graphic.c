@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20.05/01/24 14:08:32 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/29 16:38:30 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/30 01:31:51 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,15 @@ void	ft_clear_memory(t_game *game)
 int		ft_clear_frame(t_game *game)
 {
 	mlx_destroy_image(game->mlx, game->frame.img);
-	ft_clear_texture(game);
+	if (game->we_text.frame.img)
+		mlx_destroy_image(game->mlx, game->we_text.frame.img);
+	if (game->no_text.frame.img)
+		mlx_destroy_image(game->mlx, game->no_text.frame.img);
+	if (game->ea_text.frame.img)
+		mlx_destroy_image(game->mlx, game->ea_text.frame.img);
+	if (game->so_text.frame.img)
+		mlx_destroy_image(game->mlx, game->so_text.frame.img);
+	ft_clear_memory(game);
 	return (0);
 }
 
@@ -57,6 +65,10 @@ t_game	ft_init_game(t_scene *scene)
 	game.d = false;
 	game.right = false;
 	game.left = false;
+	game.we_text.frame.img = NULL;
+	game.ea_text.frame.img = NULL;
+	game.so_text.frame.img = NULL;
+	game.we_text.frame.img = NULL;
 	return (game);
 }
 
@@ -77,7 +89,10 @@ void	ft_graphic_handle(t_scene *scene)
 		ft_exit_str("Failed to create the window", scene, 6);
 	}
 	game.scene = scene;
+	game.no_text = ft_load_texture(scene->no, &game);
 	game.we_text = ft_load_texture(scene->we, &game);
+	game.ea_text = ft_load_texture(scene->ea, &game);
+	game.so_text = ft_load_texture(scene->so, &game);
 	game.frame = ft_init_frame(&game);
 	mlx_hook(game.win, 33, 0, ft_clear_frame, &game);
 	mlx_hook(game.win, 2, 1L, ft_event_key, &game);

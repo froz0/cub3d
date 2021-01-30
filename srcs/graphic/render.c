@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:59:14 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/29 16:38:59 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/29 21:01:44 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_frame	ft_init_frame(t_game *game)
 	if (!frame.img)
 	{
 		ft_log_error("Unable to create frame");
-		ft_clear_texture(game);
+		ft_clear_memory(game);
 	}
 	frame.addr = mlx_get_data_addr(frame.img, &frame.bits_per_pixel,
 			&frame.line_length, &frame.endian);

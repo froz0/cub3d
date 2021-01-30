@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 18:37:21 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/29 19:34:05 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/30 02:02:33 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	ft_render_raycast(t_game *game)
 	int		stepx;
 	int		stepy;
 	int		hit;
-	int		side;
 	int		lineheight;
 	int		drawstart;
 	int		drawend;
@@ -45,12 +44,11 @@ void	ft_render_raycast(t_game *game)
 	int		y;
 	double	wallx;
 	double	texx;
-	int		texwidth = game->we_text.width;
-	int		texheight = game->we_text.height;
+	t_texture tex;
+	int		walln;
 	double	step;
 	double	texpos;
 	double	texy;
-
 	x = 0;
 	while (x < w)
 	{
@@ -88,18 +86,27 @@ void	ft_render_raycast(t_game *game)
 			{
 				sidedistx += deltadistx;
 				mapx += stepx;
-				side = 0;
+				if (stepx == 1)
+					walln = 0;
+				else if (stepx == -1)
+					walln = 1;
 			}
 			else
 			{
 				sidedisty += deltadisty;
 				mapy += stepy;
-				side = 1;
+				if (stepy == 1)
+					walln = 2;
+				else if (stepy == -1)
+					walln = 3;
 			}
-			if (game->scene->map[mapy][mapx] == '1')
+			if (mapx > game->scene->sizey || mapy > game->scene->sizex
+					|| mapy < 0 || mapx < 0)
+				hit = 1;
+			else if (game->scene->map[mapx][mapy] == '1')
 				hit = 1;
 		}
-		if (side == 0)
+		if (walln < 2)
 			perpwalldist = (mapx - posx + (1 - stepx) / 2) / raydirx;
 		else
 			perpwalldist = (mapy - posy + (1 - stepy) / 2) / raydiry;
@@ -118,24 +125,32 @@ void	ft_render_raycast(t_game *game)
 		while (i < drawend)
 			ft_frame_pixel(game->frame, x, i++, color);
 			*/
-		if (side == 0)
+		if (walln < 2)
 			wallx = posy + perpwalldist * raydiry;
 		else
 			wallx = posx + perpwalldist * raydirx;
 		wallx -= floor((wallx));
-		texx = (int)(wallx * (double)texwidth);
-		if (side == 0 && raydirx > 0)
-			texx = texwidth - texx;
-		if (side == 1 && raydiry < 0)
-			texx = texwidth - texx;
-		step = 1.0 * texheight / lineheight;
+		if (walln == 0)
+			tex = game->so_text;
+		else if (walln == 1)
+			tex = game->no_text;
+		else if (walln == 2)
+			tex = game->we_text;
+		else if (walln == 3)
+			tex = game->ea_text;
+		texx = (int)(wallx * (double)tex.width);
+		if (walln < 2 && raydirx > 0)
+			texx = tex.width - texx;
+		if (walln > 1 && raydiry < 0)
+			texx = tex.width - texx;
+		step = 1.0 * tex.height / lineheight;
 		texpos = (drawstart - h / 2 + lineheight / 2) * step;
 		y = drawstart;
 		while (y < drawend)
 		{
-			texy = (int)texpos & (texheight - 1);
+			texy = (int)texpos & (tex.height - 1);
 			texpos += step;
-			color = ft_get_pixel(game->we_text.frame, texx, texy);
+			color = ft_get_pixel(tex.frame, texx, texy);
 			ft_frame_pixel(game->frame, x, y, color);
 			y++;
 		}

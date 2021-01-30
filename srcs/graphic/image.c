@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 14:52:20 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/29 19:32:37 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/01/30 02:10:09 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ UINT	ft_get_pixel(t_frame f, int x, int y)
 	char	*dst;
 	//ft_printf("He want x:%i y:%i\n", x, y);
     dst = f.addr + (y * f.line_length + x * (f.bits_per_pixel / 8));
-	return (*dst);
+	return (*(unsigned int*)dst);
 }
 
 t_texture	ft_load_texture(char *path, t_game *game)
@@ -44,10 +44,4 @@ t_texture	ft_load_texture(char *path, t_game *game)
 			&frame.line_length, &frame.endian);
 	text.frame = frame;
 	return (text);
-}
-
-void	ft_clear_texture(t_game *game)
-{
-	mlx_destroy_image(game->mlx, game->we_text.frame.img);
-	ft_clear_memory(game);
 }
