@@ -6,12 +6,13 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 19:01:23 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/30 14:40:44 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/02 17:21:43 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "graphic.h"
 #include <stdio.h>
+
 int	ft_event_key(unsigned int key, t_game *game)
 {
 	if (key == 0xff1b)

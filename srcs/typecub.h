@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:21:25 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/30 19:47:15 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/02 19:13:02 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ typedef struct s_player
 	int		dir;
 }	t_player;
 
+typedef	struct	s_sprite
+{
+	int	x;
+	int	y;
+}				t_sprite;
+
 typedef struct s_scene
 {
 	int			err;
@@ -66,6 +72,8 @@ typedef struct s_scene
 	t_rgb		c;
 	int			sizex;
 	int			sizey;
+	int			numsprite;
+	t_sprite	*sprites;
 	char		**map;
 	t_player	player;
 }			t_scene;

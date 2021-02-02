@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 18:37:21 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/30 20:22:20 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/02 17:50:24 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,6 @@ void	ft_render_raycast(t_game *game)
 			ft_frame_pixel(game->frame, x, y, color);
 			y++;
 		}
-		x++;
+		game->zbuffer[x++] = perpwalldist;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20.05/01/24 14:08:32 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/30 20:18:31 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/02 17:43:36 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int		ft_clear_frame(t_game *game)
 		mlx_destroy_image(game->mlx, game->so_text.frame.img);
 	if (game->sprite.frame.img)
 		mlx_destroy_image(game->mlx, game->sprite.frame.img);
+	if (game->zbuffer)
+		free(game->zbuffer);
 	ft_clear_memory(game);
 	return (0);
 }
@@ -54,40 +56,11 @@ static	int	ft_next_frame(t_game *game)
 	return (0);
 }
 
-t_game	ft_init_game(t_scene *scene)
-{
-	t_game	game;
-
-	game.scene = scene;
-	game.posx = scene->player.x + 0.5;
-	game.posy = scene->player.y + 0.5;
-	game.mlx = NULL;
-	game.win = NULL;
-	game.dirx = 0;
-	game.diry = 0;
-	game.planey = 0;
-	game.planex = 0;
-	game.w = false;
-	game.a = false;
-	game.s = false;
-	game.d = false;
-	game.right = false;
-	game.left = false;
-	game.we_text.frame.img = NULL;
-	game.ea_text.frame.img = NULL;
-	game.so_text.frame.img = NULL;
-	game.no_text.frame.img = NULL;
-	game.sprite.frame.img = NULL;
-	game.frame.img = NULL;
-	ft_set_dir(&game);
-	return (game);
-}
-
 void	ft_graphic_handle(t_scene *scene)
 {
 	t_game		game;
 
-	game = ft_init_game(scene);
+	ft_init_game(&game, scene);
 	game.mlx = mlx_init();
 	if (!game.mlx)
 		ft_exit_str("Failed to connect to X server", scene, 5);

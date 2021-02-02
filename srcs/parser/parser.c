@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 23:41:50 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/30 01:40:57 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/02 19:20:39 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ t_scene	ft_init_scene(void)
 	s.c = ft_init_rgb(-1, -1, -1);
 	s.sizex = 0;
 	s.sizey = 0;
-	s.map = 0;
+	s.map = NULL;
+	s.numsprite = 0;
+	s.sprites = NULL;
 	s.player.x = -1;
 	return (s);
 }

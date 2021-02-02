@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 14:52:20 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/30 20:19:22 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/02 17:11:30 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,4 @@ t_texture	ft_load_texture(char *path, t_game *game)
 			&frame.line_length, &frame.endian);
 	text.frame = frame;
 	return (text);
-}
-
-void	ft_init_zbuffer(t_game *game)
-{
-	game->zbuffer = malloc(game->scene->x_scr * sizeof (double));
-	if (!game->zbuffer)
-	{
-		ft_log_error("zbuffer malloc has failed");
-		ft_clear_frame(game);
-	}
 }

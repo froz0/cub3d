@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 12:30:52 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/30 13:28:44 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/02 18:31:12 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ void	ft_check_map(t_scene *scene)
 					ft_maperr(x, y, scene, "The map is open here:");
 				if (!ft_player_pos(x, y, scene))
 					ft_maperr(x, y, scene, "More than one player:");
+				if (scene->map[y][x] == '2')
+					ft_parse_sprite(x, y, scene);
 			}
 			else
 				ft_maperr(x, y, scene, "Unknow char in map.");

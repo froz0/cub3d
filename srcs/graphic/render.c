@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:59:14 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/29 21:01:44 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/02 17:22:44 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,5 @@ void	ft_render_frame(t_game *game)
 {
 	ft_render_cf(game);
 	ft_render_raycast(game);
+	//ft_render_sprite(game);
 }
-
-t_frame	ft_init_frame(t_game *game)
-{
-	t_frame	frame;
-
-	frame.img = mlx_new_image(game->mlx, game->scene->x_scr,
-			game->scene->y_scr);
-	if (!frame.img)
-	{
-		ft_log_error("Unable to create frame");
-		ft_clear_memory(game);
-	}
-	frame.addr = mlx_get_data_addr(frame.img, &frame.bits_per_pixel,
-			&frame.line_length, &frame.endian);
-	return (frame);
-}
-
-

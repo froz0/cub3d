@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 20:11:24 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/18 17:21:05 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/02 18:18:15 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static	void	ft_add_line(t_scene *scene)
 		temp[i] = scene->map[i];
 		i++;
 	}
-	free(scene->map);
+	if (scene->map)
+		free(scene->map);
 	scene->map = temp;
 }
 
