@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 12:47:33 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/08 21:22:24 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 22:12:54 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static	size_t	ft_wordlen(char const *s, char c)
 	return (i);
 }
 
-char	**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	char	**dest;
 	size_t	i;

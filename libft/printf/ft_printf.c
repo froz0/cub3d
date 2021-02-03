@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 14:36:22 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/10 14:43:14 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 22:12:05 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static	int	ft_printfutils(const char *format, va_list va, t_buffer *buffer)
 	return (count);
 }
 
-int	ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	t_buffer	buffer;
 	va_list		va;
@@ -49,7 +49,7 @@ int	ft_printf(const char *format, ...)
 	return (count);
 }
 
-int	ft_dprintf(int fd, const char *format, ...)
+int			ft_dprintf(int fd, const char *format, ...)
 {
 	t_buffer	buffer;
 	va_list		va;
@@ -63,7 +63,7 @@ int	ft_dprintf(int fd, const char *format, ...)
 	return (count);
 }
 
-int	ft_sprintf(char *str, const char *format, ...)
+int			ft_sprintf(char *str, const char *format, ...)
 {
 	t_buffer	buffer;
 	va_list		va;

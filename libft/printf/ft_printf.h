@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 19:16:04 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/13 13:51:49 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 22:11:22 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,24 @@
 # include "../libft.h"
 # include <stdarg.h>
 # define BUFFER_SIZE 2048
-# define ULL unsigned long long
-# define LL long long
 
-typedef enum e_length
+typedef	enum	e_length
 {
 	def,
 	l,
 	ll,
 	h,
 	hh
-}	t_length;
+}				t_length;
 
-typedef struct s_buffer
+typedef	struct	s_buffer
 {
 	char	content[BUFFER_SIZE];
 	int		fd;
 	size_t	size;
-}	t_buffer;
+}				t_buffer;
 
-typedef struct s_syntax
+typedef	struct	s_syntax
 {
 	t_bool		align_left;
 	t_bool		plus;
@@ -48,7 +46,7 @@ typedef struct s_syntax
 	t_length	length;
 	int			type;
 	int			count;
-}	t_syntax;
+}				t_syntax;
 
 t_buffer		ft_buffinit(int fd);
 void			ft_buffflush(t_buffer *buffer);
@@ -75,8 +73,10 @@ int				ft_int_hh(t_syntax syntax, t_buffer *buffer, va_list va);
 int				ft_int_h(t_syntax syntax, t_buffer *buffer, va_list va);
 int				ft_int_l(t_syntax syntax, t_buffer *buffer, va_list va);
 int				ft_int_ll(t_syntax syntax, t_buffer *buffer, va_list va);
-int				ft_uint_conv(t_syntax s, t_buffer *buff, unsigned long long i);
-int				ft_uhex_conv(t_syntax s, t_buffer *buf, ULL i, t_bool upp);
+int				ft_uint_conv(t_syntax s, t_buffer *buff,
+		unsigned long long i);
+int				ft_uhex_conv(t_syntax s, t_buffer *buf,
+		unsigned	long	long i, t_bool upp);
 int				ft_uint_def(t_syntax syntax, t_buffer *buffer, va_list va);
 int				ft_uint_hh(t_syntax syntax, t_buffer *buffer, va_list va);
 int				ft_uint_h(t_syntax syntax, t_buffer *buffer, va_list va);
@@ -96,6 +96,7 @@ int				ft_n_ll(t_syntax syntax, t_buffer *buffer, va_list va);
 int				ft_n_l(t_syntax syntax, t_buffer *buffer, va_list va);
 void			ft_buff_fill(t_buffer *buffer, int c, int size);
 int				ft_buffnbr_signed(long long si, char *bs, t_syntax s, char *b);
-int				ft_buffnbr_unsigned(ULL si, char *base, t_syntax s, char *buff);
+int				ft_buffnbr_unsigned(unsigned	long	long si,
+		char *base, t_syntax s, char *buff);
 int				ft_doconversion(t_syntax syntax, t_buffer *buffer, va_list va);
 #endif
