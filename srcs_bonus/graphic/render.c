@@ -6,12 +6,12 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:59:14 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 22:19:42 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 23:52:29 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "graphic.h"
-
+/*
 static	void	ft_render_line(t_frame frame, int x, int y, int color)
 {
 	int	i;
@@ -20,20 +20,45 @@ static	void	ft_render_line(t_frame frame, int x, int y, int color)
 	while (i < x)
 		ft_frame_pixel(frame, i++, y, color);
 }
-
-void			ft_render_cf(t_game *game)
+*/
+void			ft_render_cf(t_game *g)
 {
-	int	color_c;
-	int	color_f;
 	int	y;
 
-	color_c = ft_trgb(0, game->scene->c.r, game->scene->c.g, game->scene->c.b);
-	color_f = ft_trgb(0, game->scene->f.r, game->scene->f.g, game->scene->f.b);
 	y = 0;
-	while (y < (game->scene->y_scr / 2))
-		ft_render_line(game->frame, game->scene->x_scr, y++, color_c);
-	while (y < game->scene->y_scr)
-		ft_render_line(game->frame, game->scene->x_scr, y++, color_f);
+	while (y < g->scene->y_scr)
+	{
+		double	raydirx0 = g->dirx - g->planex;
+		double	raydiry0 = g->diry - g->planey;
+		double	raydirx1 = g->dirx + g->planex;
+		double	raydiry1 = g->diry + g->planey;
+		int p = y - g->scene->y_scr / 2;
+		double	posz = 0.5 * g->scene->y_scr;
+		double	rowdistance = posz / p;
+		double floorstepx = rowdistance * (raydirx1 - raydirx0) / g->scene->x_scr;
+		double floorstepy = rowdistance * (raydiry1 - raydiry0) / g->scene->x_scr;
+		double floorx = g->posx + rowdistance * raydirx0;
+		double floory = g->posy + rowdistance * raydiry0;
+		int	x;
+		int	color;
+
+		x = 0;
+		while (x < g->scene->x_scr)
+		{
+			int cellx = (int)(floorx);
+			int celly = (int)(floory);
+			int tx = (int)(g->no_text.width * (floorx - cellx)) & (g->no_text.width - 1);
+			int ty = (int)(g->no_text.height  * (floory - celly)) & (g->no_text.height - 1);
+			floorx += floorstepx;
+			floory += floorstepy;
+			color = ft_get_pixel(g->so_text.frame, tx, ty);
+			ft_frame_pixel(g->frame, x, y, color);
+			color = ft_get_pixel(g->no_text.frame, tx, ty);
+			ft_frame_pixel(g->frame, x, g->scene->y_scr - y - 1, color);
+			x++;
+		}
+		y++;
+	}      
 }
 
 void			ft_render_frame(t_game *game)
