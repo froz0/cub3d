@@ -6,7 +6,7 @@
 #    By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 16:38:19 by tmatis            #+#    #+#              #
-#    Updated: 2021/02/03 12:36:55 by tmatis           ###   ########.fr        #
+#    Updated: 2021/02/03 17:12:39 by tmatis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRCS_CUB3D	= main.c parser/parser.c parser/parse_head.c parser/parse_map.c \
 			  parser/check_map.c parser/map_utils.c graphic/graphic.c\
 			  graphic/render.c graphic/rgb.c graphic/events.c \
 			  graphic/raycaster.c graphic/move.c graphic/image.c \
-			  graphic/init.c parser/parse_sprite.c graphic/sprite.c
+			  graphic/init.c parser/parse_sprite.c graphic/sprite.c \
+			  graphic/raycaster_utils.c
 
 
 OBJS_CUB3D	= $(addprefix srcs/, ${SRCS_CUB3D:.c=.o})
@@ -27,11 +28,11 @@ OBJS_CUB3D	= $(addprefix srcs/, ${SRCS_CUB3D:.c=.o})
 
 .c.o:
 			@echo Compiling: $<
-			@clang -Wall -Wextra -Werror -c $< -o ${<:.c=.o}
+			@clang -Wall -Wextra -Werror -g -c $< -o ${<:.c=.o}
 
 $(NAME):	libft mlx ${OBJS_CUB3D}
 			@echo Linking program...
-			@clang -Wall -Wextra -Werror -o $@ ${OBJS_CUB3D} -lXext -lX11 -lm -L./libft -lft -L./minilibx-linux -lmlx
+			@clang -Wall -Wextra -Werror -g -o $@ ${OBJS_CUB3D} -lXext -lX11 -lm -L./libft -lft -L./minilibx-linux -lmlx
 mlx:
 			@echo Compling mlx...
 			@make -sC ./minilibx-linux
