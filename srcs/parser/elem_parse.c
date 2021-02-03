@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 14:12:59 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/29 16:59:51 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 12:52:29 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static int	ft_basic_atoi(char *str)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (*str && ft_isnum(*str))

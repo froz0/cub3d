@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 23:41:50 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/02 19:20:39 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 12:52:08 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ t_scene	ft_parse_scene(int fd)
 	ft_balance_map(&scene);
 	ft_log_task("Balancing map: ");
 	ft_log_ok(true);
+	ft_log_task("Checking map.. ");
 	ft_check_map(&scene);
+	ft_log_ok(true);
 	return (scene);
 }

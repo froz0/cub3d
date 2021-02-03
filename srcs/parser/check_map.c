@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 12:30:52 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 12:38:41 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 12:52:12 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void	ft_check_map(t_scene *scene)
 	int	y;
 	int	x;
 
-	ft_log_task("Checking map.. ");
 	y = -1;
 	while (++y < scene->sizey)
 	{
@@ -112,5 +111,4 @@ void	ft_check_map(t_scene *scene)
 	}
 	if (scene->player.x == -1)
 		ft_maperr(1, 1, scene, "No player in map");
-	ft_log_ok(true);
 }

@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 13:48:41 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/02 18:23:43 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 12:52:41 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static	void	ft_free_sprite(t_scene *scene)
 		free(scene->sprites);
 	scene->sprites = NULL;
 }
+
 void	ft_free_scene(t_scene *scene)
 {
 	ft_free_head(scene);

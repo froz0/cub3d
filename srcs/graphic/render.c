@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:59:14 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 12:44:56 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 13:04:33 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static	void	ft_render_line(t_frame frame, int x, int y, int color)
 
 void	ft_render_cf(t_game *game)
 {
-	int color_c;
-	int color_f;
+	int	color_c;
+	int	color_f;
 	int	y;
 
 	color_c = ft_trgb(0, game->scene->c.r, game->scene->c.g, game->scene->c.b);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 20.05/01/24 14:08:32 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 12:30:48 by tmatis           ###   ########.fr       */
+/*   Created: 20.05/01/24 14:08:32 by tmatis            #+#    #+#			  */
+/*   Updated: 2021/02/03 12:57:16 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_clear_memory(t_game *game)
 	exit(0);
 }
 
-int		ft_clear_frame(t_game *game)
+int	ft_clear_frame(t_game *game)
 {
 	if (game->frame.img)
 		mlx_destroy_image(game->mlx, game->frame.img);
@@ -84,7 +84,7 @@ void	ft_graphic_handle(t_scene *scene)
 	game.frame = ft_init_frame(&game);
 	mlx_hook(game.win, 33, 0, ft_clear_frame, &game);
 	mlx_hook(game.win, 2, 1L, ft_event_key, &game);
-	mlx_hook(game.win, 3, 1L<<1, ft_event_key_release, &game);
-    mlx_loop_hook(game.mlx, ft_next_frame, &game);
+	mlx_hook(game.win, 3, 1L << 1, ft_event_key_release, &game);
+	mlx_loop_hook(game.mlx, ft_next_frame, &game);
 	mlx_loop(game.mlx);
 }

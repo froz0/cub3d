@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 17:10:12 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/02 22:31:16 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 13:02:33 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,16 @@ static	void	ft_init_dir(t_game *game)
 	}
 }
 
+static	void	ft_init_key(t_game *game)
+{
+	game->w = false;
+	game->a = false;
+	game->s = false;
+	game->d = false;
+	game->right = false;
+	game->left = false;
+}
+
 void	ft_init_game(t_game *game, t_scene *scene)
 {
 	game->scene = scene;
@@ -85,12 +95,6 @@ void	ft_init_game(t_game *game, t_scene *scene)
 	game->diry = 0;
 	game->planey = 0;
 	game->planex = 0;
-	game->w = false;
-	game->a = false;
-	game->s = false;
-	game->d = false;
-	game->right = false;
-	game->left = false;
 	game->we_text.frame.img = NULL;
 	game->ea_text.frame.img = NULL;
 	game->so_text.frame.img = NULL;
@@ -100,6 +104,7 @@ void	ft_init_game(t_game *game, t_scene *scene)
 	game->zbuffer = NULL;
 	game->spriteorder = NULL;
 	game->spritedist = NULL;
+	ft_init_key(game);
 	ft_init_dir(game);
 	ft_init_sprites(game);
 }

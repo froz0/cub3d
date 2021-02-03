@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 15:30:43 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/29 16:58:18 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 12:50:31 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ static void	ft_check_rgb_value(t_rgb rgb, t_scene *scene)
 {
 	if (rgb.r < 0 || rgb.g < 0 || rgb.b < 0)
 	{
-			ft_log_error("Invalid value < 0 [RGB]");
-			scene->err = 1;
+		ft_log_error("Invalid value < 0 [RGB]");
+		scene->err = 1;
 	}
 	if (rgb.r > 255 || rgb.g > 255 || rgb.b > 255)
 	{
-			ft_log_error("Invalid value > 255 [RGB]");
-			scene->err = 1;
+		ft_log_error("Invalid value > 255 [RGB]");
+		scene->err = 1;
 	}
 }
 

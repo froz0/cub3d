@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:21:25 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/02 22:31:26 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 12:59:15 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,12 @@
 
 typedef struct s_frame
 {
-    void	*img;
-    char	*addr;
-    int		bits_per_pixel;
-    int		line_length;
-    int		endian;
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
 }	t_frame;
-
 
 typedef struct s_args
 {
@@ -51,7 +50,7 @@ typedef struct s_player
 	int		dir;
 }	t_player;
 
-typedef	struct	s_sprite
+typedef struct s_sprite
 {
 	int	x;
 	int	y;

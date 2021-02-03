@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 22:22:51 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 12:47:55 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 13:05:03 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ft_render_sprite(t_game *g)
 
 		int	spritescreenx = (int)((g->scene->x_scr / 2) * (1 + transformx / transformy));
 		
-		int spriteheight = abs((int)(g->scene->y_scr / (transformy)));
+		int spriteheight = ft_abs((int)(g->scene->y_scr / (transformy)));
 		int drawstarty = -spriteheight / 2 + g->scene->y_scr / 2;
 		if (drawstarty < 0)
 			drawstarty = 0;

@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 14:52:20 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/02 17:11:30 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 13:00:57 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@ void	ft_frame_pixel(t_frame f, int x, int y, int color)
 {
 	char	*dst;
 
-    dst = f.addr + (y * f.line_length + x * (f.bits_per_pixel / 8));
-    *(unsigned int*)dst = color;
+	dst = f.addr + (y * f.line_length + x * (f.bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
 }
 
 UINT	ft_get_pixel(t_frame f, int x, int y)
 {
 	char	*dst;
-    dst = f.addr + (y * f.line_length + x * (f.bits_per_pixel / 8));
-	return (*(unsigned int*)dst);
+
+	dst = f.addr + (y * f.line_length + x * (f.bits_per_pixel / 8));
+	return (*(unsigned int *)dst);
 }
 
 t_texture	ft_load_texture(char *path, t_game *game)
