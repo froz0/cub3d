@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 22:32:30 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/26 22:36:35 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/02 23:13:40 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 # define MATHS_H
 
-double	ft_abs(double n);
+int		ft_abs(int n);
+double	ft_fabs(double n);
 
 #endif

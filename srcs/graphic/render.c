@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:59:14 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/02 17:22:44 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 12:24:29 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void	ft_render_frame(t_game *game)
 {
 	ft_render_cf(game);
 	ft_render_raycast(game);
-	//ft_render_sprite(game);
+	ft_render_sprite(game);
 }

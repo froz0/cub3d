@@ -6,11 +6,19 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 22:34:33 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/26 22:34:59 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/02 23:13:11 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-double	ft_abs(double n)
+double	ft_fabs(double n)
+{
+	if (n < 0)
+		return (-n);
+	else
+		return (n);
+}
+
+int	ft_abs(int n)
 {
 	if (n < 0)
 		return (-n);

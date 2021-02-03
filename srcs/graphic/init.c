@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 17:10:12 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/02 17:42:17 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/02 22:31:16 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,24 @@ t_frame	ft_init_frame(t_game *game)
 	return (frame);
 }
 
-static	void	ft_init_zbuffer(t_game *game)
+static	void	ft_init_sprites(t_game *game)
 {
 	game->zbuffer = malloc(game->scene->x_scr * sizeof (double));
 	if (!game->zbuffer)
 	{
 		ft_log_error("zbuffer malloc has failed");
+		ft_clear_frame(game);
+	}
+	game->spriteorder = malloc(game->scene->numsprite * sizeof (int));
+	if (!game->zbuffer)
+	{
+		ft_log_error("spriteorder malloc has failed");
+		ft_clear_frame(game);
+	}
+	game->spritedist = malloc(game->scene->numsprite * sizeof (double));
+	if (!game->spritedist)
+	{
+		ft_log_error("spriteorder malloc has failed");
 		ft_clear_frame(game);
 	}
 }
@@ -86,6 +98,8 @@ void	ft_init_game(t_game *game, t_scene *scene)
 	game->sprite.frame.img = NULL;
 	game->frame.img = NULL;
 	game->zbuffer = NULL;
+	game->spriteorder = NULL;
+	game->spritedist = NULL;
 	ft_init_dir(game);
-	ft_init_zbuffer(game);
+	ft_init_sprites(game);
 }

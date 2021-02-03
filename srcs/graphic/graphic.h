@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 14:03:53 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/02 17:18:29 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 12:23:51 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void		ft_graphic_handle(t_scene *scene);
 t_frame		ft_init_frame(t_game *game);
 void		ft_render_frame(t_game *game);
 void		ft_render_raycast(t_game *game);
+void		ft_render_sprite(t_game *g);
 int			ft_trgb(int t, int r, int g, int b);
 int			ft_event_key_release(unsigned int key, t_game *game);
 void		ft_walk(t_game *g);

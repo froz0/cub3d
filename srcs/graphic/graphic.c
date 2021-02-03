@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20.05/01/24 14:08:32 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/02 17:43:36 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 12:30:48 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ int		ft_clear_frame(t_game *game)
 		mlx_destroy_image(game->mlx, game->sprite.frame.img);
 	if (game->zbuffer)
 		free(game->zbuffer);
+	if (game->spriteorder)
+		free(game->spriteorder);
+	if (game->spritedist)
+		free(game->spritedist);
 	ft_clear_memory(game);
 	return (0);
 }
