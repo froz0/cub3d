@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 19:12:31 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 20:58:27 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 21:04:30 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void	ft_write_img(int fd, t_game game)
 	int	x;
 	int	color;
 
-	y = game.scene->y_scr - 1;
-	while (y)
+	y = game.scene->y_scr;
+	while (y--)
 	{
 		x = 0;
 		while (x < game.scene->x_scr)
@@ -57,7 +57,6 @@ void	ft_write_img(int fd, t_game game)
 			write(fd, &color, 4);
 			x++;
 		}
-		y--;
 	}
 }
 
