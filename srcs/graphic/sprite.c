@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 22:22:51 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 12:23:23 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 12:47:55 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static	void	ft_sort_sprite(double *dist, int *order, int size)
 		y = i + 1;
 		while (y < size)
 		{
-			if (dist[i] > dist[y])
+			if (dist[i] < dist[y])
 			{
 				temp = dist[i];
 				temp2 = order[i];
@@ -57,8 +57,8 @@ void	ft_render_sprite(t_game *g)
 	i = 0;
 	while (i < g->scene->numsprite)
 	{
-		double spritex = g->scene->sprites[g->spriteorder[i]].x - g->posx;
-		double spritey = g->scene->sprites[g->spriteorder[i]].y - g->posy;
+		double spritex = g->scene->sprites[g->spriteorder[i]].x - (g->posx - 0.5);
+		double spritey = g->scene->sprites[g->spriteorder[i]].y - (g->posy - 0.5);
 		double invdet = 1.0 / (g->planex * g->diry - g->dirx * g->planey);
 
 		double	transformx = invdet * (g->diry * spritex - g->dirx * spritey);
