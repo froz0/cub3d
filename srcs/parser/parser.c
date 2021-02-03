@@ -6,13 +6,13 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 23:41:50 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 12:52:08 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 22:32:28 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-t_rgb	ft_init_rgb(int r, int g, int b)
+t_rgb		ft_init_rgb(int r, int g, int b)
 {
 	t_rgb	rgb;
 
@@ -22,7 +22,7 @@ t_rgb	ft_init_rgb(int r, int g, int b)
 	return (rgb);
 }
 
-t_scene	ft_init_scene(void)
+t_scene		ft_init_scene(void)
 {
 	t_scene	s;
 
@@ -74,7 +74,7 @@ static void	ft_parse_file_handle(int fd, t_scene *scene)
 	}
 }
 
-t_scene	ft_parse_scene(int fd)
+t_scene		ft_parse_scene(int fd)
 {
 	t_scene	scene;
 

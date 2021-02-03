@@ -6,16 +6,16 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 14:00:57 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 20:14:45 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 22:19:03 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include <stdlib.h>
 #include <fcntl.h>
-#include <errno.h>  
+#include <errno.h>
 
-static	int	ft_verify_cub(char *filename)
+static	int		ft_verify_cub(char *filename)
 {
 	char	*find;
 
@@ -57,7 +57,7 @@ static t_args	ft_parseargs(int argc, char **argv)
 	return (args);
 }
 
-int	main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	t_args	args;
 	t_scene	scene;

@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 15:30:43 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 12:50:31 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 22:31:39 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ static void	ft_check_rgb(t_scene *scene)
 	ft_check_rgb_value(scene->c, scene);
 }
 
-void	ft_check_head(t_scene *scene)
+void		ft_check_head(t_scene *scene)
 {
 	ft_check_r(scene);
 	ft_check_texture(scene);

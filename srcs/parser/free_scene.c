@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 13:48:41 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 12:52:41 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 22:33:37 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,14 @@ static	void	ft_free_sprite(t_scene *scene)
 	scene->sprites = NULL;
 }
 
-void	ft_free_scene(t_scene *scene)
+void			ft_free_scene(t_scene *scene)
 {
 	ft_free_head(scene);
 	ft_free_map(scene);
 	ft_free_sprite(scene);
 }
 
-void	ft_exit_str(char *strerror, t_scene *scene, int errno)
+void			ft_exit_str(char *strerror, t_scene *scene, int errno)
 {
 	ft_log_error(strerror);
 	ft_free_scene(scene);

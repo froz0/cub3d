@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 14:12:59 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 12:52:29 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 22:34:36 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_basic_atoi(char *str)
 	return ((int)i);
 }
 
-void	ft_parse_r(char *line, t_scene *scene)
+void		ft_parse_r(char *line, t_scene *scene)
 {
 	while (ft_isspace(*line))
 		line++;
@@ -62,7 +62,7 @@ static	int	ft_skip(char **line)
 	return (0);
 }
 
-t_rgb	ft_parse_rgb(char *line)
+t_rgb		ft_parse_rgb(char *line)
 {
 	int		r;
 	int		g;
@@ -85,7 +85,7 @@ t_rgb	ft_parse_rgb(char *line)
 		return (ft_init_rgb(r, g, b));
 }
 
-void	ft_parse_texture(char **path, char *line)
+void		ft_parse_texture(char **path, char *line)
 {
 	int	i;
 

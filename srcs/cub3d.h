@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 16:38:54 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 20:14:37 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 22:35:35 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "./typecub.h"
 # include "./parser/parser.h"
 # include "../minilibx-linux/mlx.h"
-# include  "./graphic/graphic.h"
+# include "./graphic/graphic.h"
 
 void	ft_save_bmp(t_scene *scene);
 
