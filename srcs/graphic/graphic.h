@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 14:03:53 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 18:30:32 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 19:32:21 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,5 @@ void		ft_straft(t_game *g);
 void		ft_rotate(t_game *g);
 void		ft_set_dir(t_game *game);
 void		ft_init_game(t_game *game, t_scene *scene);
-
+t_game		ft_getfirst_frame(t_scene *scene);
 #endif

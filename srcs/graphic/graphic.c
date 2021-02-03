@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20.05/01/24 14:08:32 by tmatis            #+#    #+#			  */
-/*   Updated: 2021/02/03 12:57:16 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 20:18:12 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,24 @@ static	int	ft_next_frame(t_game *game)
 	ft_render_frame(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->frame.img, 0, 0);
 	return (0);
+}
+
+t_game	ft_getfirst_frame(t_scene *scene)
+{
+	t_game		game;
+
+	ft_init_game(&game, scene);
+	game.mlx = mlx_init();
+	if (!game.mlx)
+		ft_exit_str("Failed to connect to X server", scene, 5);
+	game.no_text = ft_load_texture(scene->no, &game);
+	game.we_text = ft_load_texture(scene->we, &game);
+	game.ea_text = ft_load_texture(scene->ea, &game);
+	game.so_text = ft_load_texture(scene->so, &game);
+	game.sprite = ft_load_texture(scene->s, &game);
+	game.frame = ft_init_frame(&game);
+	ft_render_frame(&game);
+	return (game);
 }
 
 void	ft_graphic_handle(t_scene *scene)
