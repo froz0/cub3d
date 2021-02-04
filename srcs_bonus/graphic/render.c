@@ -6,13 +6,13 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:59:14 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/04 13:23:42 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 13:27:02 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "graphic.h"
 
-static void	ft_calc_pos(t_game *g, t_cf *cf, int y)
+static void		ft_calc_pos(t_game *g, t_cf *cf, int y)
 {
 	cf->raydirx0 = g->dirx - g->planex;
 	cf->raydiry0 = g->diry - g->planey;
@@ -73,7 +73,7 @@ void			ft_render_cf(t_game *g)
 			x++;
 		}
 		y++;
-	}      
+	}
 }
 
 void			ft_render_frame(t_game *game)
