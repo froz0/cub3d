@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 15:30:43 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 22:31:39 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 13:30:15 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ static void	ft_check_r(t_scene *scene)
 {
 	if (scene->x_scr == -1)
 	{
-		ft_log_warn("R is not set,, back to 200x200");
-		scene->x_scr = 200;
-		scene->y_scr = 200;
+		ft_log_error("R is not set");
+		scene->err = 1;
 	}
 	if (scene->x_scr < 2)
 		ft_log_error("R x is < 2, error");
@@ -65,17 +64,13 @@ static void	ft_check_rgb(t_scene *scene)
 {
 	if (scene->f.r == -1)
 	{
-		ft_log_warn("RGB [F] is not set fall back to default value 255,0,0");
-		scene->f.r = 255;
-		scene->f.g = 0;
-		scene->f.b = 0;
+		ft_log_warn("RGB [F] is not set");
+		scene->err = 1;
 	}
 	if (scene->c.r == -1)
 	{
-		ft_log_warn("RGB [C] is not set fall back to default value 0,0,255");
-		scene->f.r = 0;
-		scene->f.g = 0;
-		scene->f.b = 255;
+		ft_log_warn("RGB [C] is not set");
+		scene->err = 1;
 	}
 	if (scene->c.r == -2)
 		ft_log_error("Error while parsing [C]");
