@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 14:52:20 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 22:30:19 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 12:38:40 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,15 @@ t_texture		ft_load_texture(char *path, t_game *game)
 			&frame.line_length, &frame.endian);
 	text.frame = frame;
 	return (text);
+}
+
+void			ft_load_textures(t_game *game)
+{
+	game->no_text = ft_load_texture(game->scene->no, game);
+	game->we_text = ft_load_texture(game->scene->we, game);
+	game->ea_text = ft_load_texture(game->scene->ea, game);
+	game->so_text = ft_load_texture(game->scene->so, game);
+	game->sprite = ft_load_texture(game->scene->s, game);
+	game->c_text = ft_load_texture("./texture/cell.xpm", game);
+	game->f_text = ft_load_texture("./texture/floor.xpm", game);
 }

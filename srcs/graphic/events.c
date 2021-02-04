@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 19:01:23 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/02 17:21:43 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 13:25:28 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int	ft_event_key(unsigned int key, t_game *game)
 		game->right = true;
 	else if (key == 0xff51)
 		game->left = true;
-	else
-		ft_printf("key pressed: %#x\n", key);
 	return (0);
 }
 

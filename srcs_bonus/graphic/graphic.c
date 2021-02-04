@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 22:24:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 22:24:31 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 12:31:42 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ int			ft_clear_frame(t_game *game)
 		mlx_destroy_image(game->mlx, game->so_text.frame.img);
 	if (game->sprite.frame.img)
 		mlx_destroy_image(game->mlx, game->sprite.frame.img);
+	if (game->f_text.frame.img)
+		mlx_destroy_image(game->mlx, game->f_text.frame.img);
+	if (game->c_text.frame.img)
+		mlx_destroy_image(game->mlx, game->c_text.frame.img);
 	if (game->zbuffer)
 		free(game->zbuffer);
 	if (game->spriteorder)
@@ -68,11 +72,7 @@ t_game		ft_getfirst_frame(t_scene *scene)
 	game.mlx = mlx_init();
 	if (!game.mlx)
 		ft_exit_str("Failed to connect to X server", scene, 5);
-	game.no_text = ft_load_texture(scene->no, &game);
-	game.we_text = ft_load_texture(scene->we, &game);
-	game.ea_text = ft_load_texture(scene->ea, &game);
-	game.so_text = ft_load_texture(scene->so, &game);
-	game.sprite = ft_load_texture(scene->s, &game);
+	ft_load_textures(&game);
 	game.frame = ft_init_frame(&game);
 	ft_render_frame(&game);
 	return (game);
@@ -94,11 +94,7 @@ void		ft_graphic_handle(t_scene *scene)
 		free(game.mlx);
 		ft_exit_str("Failed to create the window", scene, 6);
 	}
-	game.no_text = ft_load_texture(scene->no, &game);
-	game.we_text = ft_load_texture(scene->we, &game);
-	game.ea_text = ft_load_texture(scene->ea, &game);
-	game.so_text = ft_load_texture(scene->so, &game);
-	game.sprite = ft_load_texture(scene->s, &game);
+	ft_load_textures(&game);
 	game.frame = ft_init_frame(&game);
 	mlx_hook(game.win, 33, 0, ft_clear_frame, &game);
 	mlx_hook(game.win, 2, 1L, ft_event_key, &game);

@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 14:03:53 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 23:24:16 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 13:09:05 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,31 @@
 # define WS 0.05
 # define SP 0.05
 # define RS 0.03
+
+typedef	struct	s_cf
+{
+	double		raydirx0;
+	double		raydiry0;
+	double		raydirx1;
+	double		raydiry1;
+	int			p;
+	double		posz;
+	double		rowdistance;
+	double		floorstepx;
+	double		floorstepy;
+	double		floorx_c;
+	double		floory_c;
+	double		floorx_f;
+	double		floory_f;
+	int			cellx_c;
+	int			celly_c;
+	int			cellx_f;
+	int			celly_f;
+	int			tx_c;
+	int			ty_c;
+	int			tx_f;
+	int			ty_f;
+}				t_cf;
 
 typedef	struct	s_ray
 {
@@ -86,4 +111,5 @@ void			ft_rotate(t_game *g);
 void			ft_set_dir(t_game *game);
 void			ft_init_game(t_game *game, t_scene *scene);
 t_game			ft_getfirst_frame(t_scene *scene);
+void			ft_load_textures(t_game *game);
 #endif

@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 17:10:12 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 22:20:08 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 12:24:38 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ void			ft_init_game(t_game *game, t_scene *scene)
 	game->ea_text.frame.img = NULL;
 	game->so_text.frame.img = NULL;
 	game->no_text.frame.img = NULL;
+	game->c_text.frame.img = NULL;
+	game->f_text.frame.img = NULL;
 	game->sprite.frame.img = NULL;
 	game->frame.img = NULL;
 	game->zbuffer = NULL;
