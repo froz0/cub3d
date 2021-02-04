@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 14:52:20 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 22:30:19 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 14:11:35 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,25 @@ t_texture		ft_load_texture(char *path, t_game *game)
 			&frame.line_length, &frame.endian);
 	text.frame = frame;
 	return (text);
+}
+
+void			ft_load_textures(t_game *game)
+{
+	game->no_text = ft_load_texture(game->scene->no, game);
+	game->we_text = ft_load_texture(game->scene->we, game);
+	game->ea_text = ft_load_texture(game->scene->ea, game);
+	game->so_text = ft_load_texture(game->scene->so, game);
+	game->sprite = ft_load_texture(game->scene->s, game);
+}
+
+void			ft_check_screen(void *mlx, t_game *game)
+{
+	int	x;
+	int	y;
+
+	mlx_get_screen_size(mlx, &x, &y);
+	if (x < game->scene->x_scr)
+		game->scene->x_scr = x;
+	if (y < game->scene->y_scr)
+		game->scene->y_scr = y;
 }

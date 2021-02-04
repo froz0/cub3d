@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 17:10:12 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 22:20:08 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 13:56:40 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ void			ft_init_game(t_game *game, t_scene *scene)
 	game->scene = scene;
 	game->posx = scene->player.x + 0.5;
 	game->posy = scene->player.y + 0.5;
-	game->mlx = NULL;
 	game->win = NULL;
+	game->mlx = NULL;
 	game->dirx = 0;
 	game->diry = 0;
 	game->planey = 0;

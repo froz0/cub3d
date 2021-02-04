@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 22:24:09 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 22:24:31 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 14:01:18 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,7 @@ t_game		ft_getfirst_frame(t_scene *scene)
 	game.mlx = mlx_init();
 	if (!game.mlx)
 		ft_exit_str("Failed to connect to X server", scene, 5);
-	game.no_text = ft_load_texture(scene->no, &game);
-	game.we_text = ft_load_texture(scene->we, &game);
-	game.ea_text = ft_load_texture(scene->ea, &game);
-	game.so_text = ft_load_texture(scene->so, &game);
-	game.sprite = ft_load_texture(scene->s, &game);
+	ft_load_textures(&game);
 	game.frame = ft_init_frame(&game);
 	ft_render_frame(&game);
 	return (game);
@@ -86,6 +82,7 @@ void		ft_graphic_handle(t_scene *scene)
 	game.mlx = mlx_init();
 	if (!game.mlx)
 		ft_exit_str("Failed to connect to X server", scene, 5);
+	ft_check_screen(game.mlx, &game);
 	game.win = mlx_new_window(game.mlx, scene->x_scr,
 			scene->y_scr, "Cub3d");
 	if (!game.win)
@@ -94,11 +91,7 @@ void		ft_graphic_handle(t_scene *scene)
 		free(game.mlx);
 		ft_exit_str("Failed to create the window", scene, 6);
 	}
-	game.no_text = ft_load_texture(scene->no, &game);
-	game.we_text = ft_load_texture(scene->we, &game);
-	game.ea_text = ft_load_texture(scene->ea, &game);
-	game.so_text = ft_load_texture(scene->so, &game);
-	game.sprite = ft_load_texture(scene->s, &game);
+	ft_load_textures(&game);
 	game.frame = ft_init_frame(&game);
 	mlx_hook(game.win, 33, 0, ft_clear_frame, &game);
 	mlx_hook(game.win, 2, 1L, ft_event_key, &game);

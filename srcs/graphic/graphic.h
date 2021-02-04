@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 14:03:53 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 22:22:38 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 13:58:02 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,6 @@ void			ft_rotate(t_game *g);
 void			ft_set_dir(t_game *game);
 void			ft_init_game(t_game *game, t_scene *scene);
 t_game			ft_getfirst_frame(t_scene *scene);
+void			ft_load_textures(t_game *game);
+void			ft_check_screen(void *mlx, t_game *game);
 #endif
