@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 14:12:59 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/04 15:37:44 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 20:56:43 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,13 @@ static	int	ft_skip(char **line)
 	while (ft_isspace(**line))
 		(*line)++;
 	if (**line == ',' && !vir)
+	{
 		(*line)++;
+		vir = 1;
+	}
 	while (ft_isspace(**line))
 		(*line)++;
-	if (!ft_isnum(**line))
+	if (!vir || !ft_isnum(**line))
 		return (1);
 	return (0);
 }
@@ -98,11 +101,7 @@ void		ft_parse_rgb(char *line, t_rgb *rgb)
 	while (ft_isnum(*line))
 		line++;
 	if (*line != '\0')
-	{
-		*rgb = ft_init_rgb(-2, -2, -2);
-		ft_log_error("Trailling char(s) at the end of [RGB]");
-		ft_dprintf(2 , "-->'%s'\n", line);
-	}
+		ft_rgb_error(line, rgb);
 }
 
 void		ft_parse_texture(char **path, char *line)

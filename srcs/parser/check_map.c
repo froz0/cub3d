@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 12:30:52 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/04 15:47:13 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 21:06:13 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void			ft_check_map(t_scene *scene)
 			{
 				if (ft_should_surround(scene->map[y][x])
 					&& !ft_check_arround(x, y, scene))
-					ft_maperr(x, y, scene, "open here or invallid char arround:");
+					ft_maperr(x, y, scene, "invalid char arround:");
 				if (!ft_player_pos(x, y, scene))
 					ft_maperr(x, y, scene, "More than one player:");
 				if (scene->map[y][x] == '2')

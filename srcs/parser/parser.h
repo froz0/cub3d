@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 23:39:38 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/04 15:17:05 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 20:51:44 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,5 @@ t_bool	ft_should_surround(int c);
 void	ft_parse_sprite(int	x, int y, t_scene *scene);
 t_bool	ft_ischarok(char c);
 void	ft_parse_sprite(int	x, int y, t_scene *scene);
+void	ft_rgb_error(char *line, t_rgb *rgb);
 #endif

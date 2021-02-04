@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:03:43 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/18 16:06:00 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 20:50:59 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,11 @@ t_bool	ft_ischarok(char c)
 		return (false);
 	else
 		return (true);
+}
+
+void	ft_rgb_error(char *line, t_rgb *rgb)
+{
+	*rgb = ft_init_rgb(-2, -2, -2);
+	ft_log_error("Trailling char(s) at the end of [RGB]");
+	ft_dprintf(2, "-->'%s'\n", line);
 }

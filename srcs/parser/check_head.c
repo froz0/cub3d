@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 15:30:43 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/04 13:30:15 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 20:59:58 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,21 @@ static void	ft_check_r(t_scene *scene)
 
 static void	ft_check_texture(t_scene *scene)
 {
-	if (!scene->no)
-		ft_log_warn("Texture [NO] is not set, fall back to default.");
-	if (!scene->so)
-		ft_log_warn("Texture [SO] is not set, fall back to default.");
-	if (!scene->we)
-		ft_log_warn("Texture [WE] is not set, fall back to default.");
-	if (!scene->ea)
-		ft_log_warn("Texture [EA] is not set, fall back to default.");
-	if (!scene->s)
-		ft_log_warn("Texture [S] is not set, fall back to default.");
+	int	err;
+
+	err = 0;
+	if (!scene->no && ++err)
+		ft_log_error("Texture [NO] is not set");
+	if (!scene->so && ++err)
+		ft_log_error("Texture [SO] is not set");
+	if (!scene->we && ++err)
+		ft_log_error("Texture [WE] is not set");
+	if (!scene->ea && ++err)
+		ft_log_error("Texture [EA] is not set");
+	if (!scene->s && ++err)
+		ft_log_error("Texture [S] is not set");
+	if (err)
+		scene->err = 1;
 }
 
 static void	ft_check_rgb_value(t_rgb rgb, t_scene *scene)
