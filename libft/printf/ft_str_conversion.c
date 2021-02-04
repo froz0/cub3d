@@ -6,13 +6,13 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 13:16:03 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/07 21:49:16 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 22:11:10 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_str_def(t_syntax syntax, t_buffer *buffer, va_list va)
+int				ft_str_def(t_syntax syntax, t_buffer *buffer, va_list va)
 {
 	char			*pretends;
 	char			*nullstr;
@@ -39,7 +39,7 @@ int	ft_str_def(t_syntax syntax, t_buffer *buffer, va_list va)
 		return (strlen);
 }
 
-static	int	ft_wstrlenp(const int *wstr, int precision)
+static	int		ft_wstrlenp(const int *wstr, int precision)
 {
 	char	buff[4];
 	int		strlen;
@@ -76,7 +76,7 @@ static	void	ft_buffwcat(t_buffer *buffer, const int *wstr, int prec)
 	}
 }
 
-int	ft_str_l(t_syntax syntax, t_buffer *buffer, va_list va)
+int				ft_str_l(t_syntax syntax, t_buffer *buffer, va_list va)
 {
 	char	*pretends;
 	int		*nullstr;

@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 22:22:51 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 18:44:18 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 14:10:07 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ static	void	ft_init_sprites(t_game *g)
 	{
 		sprite = g->scene->sprites[i];
 		g->spriteorder[i] = i;
-		g->spritedist[i] = ((g->posx - sprite.x)
-				*(g->posx - sprite.x) + (g->posy - sprite.y) * (g->posy - sprite.y));
+		g->spritedist[i] = ((g->posx - sprite.x) * (g->posx - sprite.x)
+				+ (g->posy - sprite.y) * (g->posy - sprite.y));
 		i++;
 	}
 }
@@ -62,8 +62,10 @@ static	void	ft_calc_sprite(t_game *g, t_sp *s, int i)
 	s->spritey = g->scene->sprites[g->spriteorder[i]].y - (g->posy - 0.5);
 	s->invdet = 1.0 / (g->planex * g->diry - g->dirx * g->planey);
 	s->transformx = s->invdet * (g->diry * s->spritex - g->dirx * s->spritey);
-	s->transformy = s->invdet * (-g->planey * s->spritex + g->planex * s->spritey);
-	s->spritescreenx = (int)((g->scene->x_scr / 2) *(1 + s->transformx / s->transformy));
+	s->transformy = s->invdet
+		* (-g->planey * s->spritex + g->planex * s->spritey);
+	s->spritescreenx = (int)((g->scene->x_scr / 2)
+			* (1 + s->transformx / s->transformy));
 	s->spriteheight = ft_abs((int)(g->scene->y_scr / (s->transformy)));
 	s->drawstarty = -s->spriteheight / 2 + g->scene->y_scr / 2;
 	if (s->drawstarty < 0)
@@ -80,16 +82,16 @@ static	void	ft_calc_sprite(t_game *g, t_sp *s, int i)
 		s->drawendx = g->scene->x_scr - 1;
 }
 
-void	ft_draw_stripe(t_game *g, t_sp *s, int stripe)
+void			ft_draw_stripe(t_game *g, t_sp *s, int stripe)
 {
-	UINT	color;
-	int		y;
+	unsigned	int	color;
+	int				y;
 
 	s->texx = (int)(256 * (stripe
 				- (-s->spritewidth / 2 + s->spritescreenx))
 			* g->sprite.width / s->spritewidth) / 256;
-	if (s->transformy > 0
-		&& stripe > 0 && stripe < g->scene->x_scr && s->transformy < g->zbuffer[stripe])
+	if (s->transformy > 0 && stripe > 0 && stripe < g->scene->x_scr
+			&& s->transformy < g->zbuffer[stripe])
 	{
 		y = s->drawstarty;
 		while (y < s->drawendy)
@@ -104,7 +106,7 @@ void	ft_draw_stripe(t_game *g, t_sp *s, int stripe)
 	}
 }
 
-void	ft_render_sprite(t_game *g)
+void			ft_render_sprite(t_game *g)
 {
 	t_sp	sp;
 	int		i;

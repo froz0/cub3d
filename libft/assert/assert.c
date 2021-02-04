@@ -6,13 +6,13 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 18:18:17 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/08 21:19:11 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 22:16:04 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "assert.h"
 
-void	ft_assert(int actual, char *behavior, t_tests *tests)
+void			ft_assert(int actual, char *behavior, t_tests *tests)
 {
 	if (actual && ++tests->tests_success && tests->log_level >= 3)
 		ft_putstr_fd("\033[1;32m [OK] ", 1);
@@ -27,11 +27,13 @@ void	ft_assert(int actual, char *behavior, t_tests *tests)
 	}
 }
 
-void	ft_assert_cmp(int actual, int expected, char *behavior, t_tests *tests)
+void			ft_assert_cmp(
+		int actual, int expected, char *behavior, t_tests *tests)
 {
 	if (actual == expected && ++tests->tests_success && tests->log_level >= 3)
 		ft_putstr_fd("\033[1;32m [OK] ", 1);
-	else if (actual != expected && ++tests->tests_failed && tests->log_level >= 1)
+	else if (actual != expected && ++tests->tests_failed
+			&& tests->log_level >= 1)
 		ft_putstr_fd("\033[1;31m [KO] ", 1);
 	if ((tests->log_level >= 4) || (tests->log_level >= 2
 				&& actual != expected))
@@ -75,7 +77,8 @@ static	void	ft_putdiff(char *actual, char *expected, int indexdiff)
 	ft_putstr_fd("\033[0m\n       ", 1);
 }
 
-void	ft_assert_strcmp(char *act, char *exp, char *behavior, t_tests *tests)
+void			ft_assert_strcmp(
+		char *act, char *exp, char *behavior, t_tests *tests)
 {
 	size_t	i;
 

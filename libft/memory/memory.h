@@ -6,14 +6,14 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 15:31:06 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/04 15:48:58 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 21:59:19 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MEMORY_H
 
-# include "string.h"
 # define MEMORY_H
+# include "string.h"
 
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);

@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 23:46:31 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/02 18:06:29 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 22:06:16 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ static	t_bool	ft_issign(char c)
 	return (c == '+' || c == ' ' || c == '-');
 }
 
-static	int	ft_isbegin(char *s)
+static	int		ft_isbegin(char *s)
 {
 	if (ft_memcmp(s, "0x", 2) == 0 || ft_memcmp(s, "0X", 2) == 0)
 		return (2);
 	return (0);
 }
 
-int	ft_int_conv(t_syntax syntax, t_buffer *buffer, long long i)
+int				ft_int_conv(t_syntax syntax, t_buffer *buffer, long long i)
 {
 	char			buff[BUFFER_SIZE];
 	int				numlen;
@@ -52,7 +52,8 @@ int	ft_int_conv(t_syntax syntax, t_buffer *buffer, long long i)
 		return (numlen);
 }
 
-int	ft_uint_conv(t_syntax syntax, t_buffer *buffer, ULL i)
+int				ft_uint_conv(t_syntax syntax, t_buffer *buffer,
+		unsigned long long i)
 {
 	char			buff[BUFFER_SIZE];
 	int				numlen;
@@ -80,7 +81,8 @@ int	ft_uint_conv(t_syntax syntax, t_buffer *buffer, ULL i)
 		return (numlen);
 }
 
-int	ft_uhex_conv(t_syntax s, t_buffer *buffer, ULL i, t_bool upp)
+int				ft_uhex_conv(t_syntax s, t_buffer *buffer,
+		unsigned long long i, t_bool upp)
 {
 	char			buff[BUFFER_SIZE];
 	int				nl;

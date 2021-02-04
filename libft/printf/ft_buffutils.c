@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:22:13 by tmatis            #+#    #+#             */
-/*   Updated: 2021/01/10 14:28:07 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 22:10:09 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ t_buffer	ft_buffinit(int fd)
 	return (buff);
 }
 
-void	ft_buffflush(t_buffer *buffer)
+void		ft_buffflush(t_buffer *buffer)
 {
 	write(buffer->fd, buffer->content, buffer->size);
 	buffer->size = 0;
 }
 
-void	ft_buffcat(t_buffer *buffer, const char *s2, size_t size)
+void		ft_buffcat(t_buffer *buffer, const char *s2, size_t size)
 {
 	size_t	i;
 
@@ -42,7 +42,7 @@ void	ft_buffcat(t_buffer *buffer, const char *s2, size_t size)
 	}
 }
 
-void	ft_buff_fill(t_buffer *buffer, int c, int size)
+void		ft_buff_fill(t_buffer *buffer, int c, int size)
 {
 	int	i;
 

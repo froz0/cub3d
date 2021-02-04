@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:59:14 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 13:04:33 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 22:19:42 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static	void	ft_render_line(t_frame frame, int x, int y, int color)
 		ft_frame_pixel(frame, i++, y, color);
 }
 
-void	ft_render_cf(t_game *game)
+void			ft_render_cf(t_game *game)
 {
 	int	color_c;
 	int	color_f;
@@ -36,7 +36,7 @@ void	ft_render_cf(t_game *game)
 		ft_render_line(game->frame, game->scene->x_scr, y++, color_f);
 }
 
-void	ft_render_frame(t_game *game)
+void			ft_render_frame(t_game *game)
 {
 	ft_render_cf(game);
 	ft_render_raycast(game);

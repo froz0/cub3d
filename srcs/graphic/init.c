@@ -6,13 +6,13 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 17:10:12 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 13:02:33 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 13:56:40 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "graphic.h"
 
-t_frame	ft_init_frame(t_game *game)
+t_frame			ft_init_frame(t_game *game)
 {
 	t_frame	frame;
 
@@ -30,19 +30,19 @@ t_frame	ft_init_frame(t_game *game)
 
 static	void	ft_init_sprites(t_game *game)
 {
-	game->zbuffer = malloc(game->scene->x_scr * sizeof (double));
+	game->zbuffer = malloc(game->scene->x_scr * sizeof(double));
 	if (!game->zbuffer)
 	{
 		ft_log_error("zbuffer malloc has failed");
 		ft_clear_frame(game);
 	}
-	game->spriteorder = malloc(game->scene->numsprite * sizeof (int));
+	game->spriteorder = malloc(game->scene->numsprite * sizeof(int));
 	if (!game->zbuffer)
 	{
 		ft_log_error("spriteorder malloc has failed");
 		ft_clear_frame(game);
 	}
-	game->spritedist = malloc(game->scene->numsprite * sizeof (double));
+	game->spritedist = malloc(game->scene->numsprite * sizeof(double));
 	if (!game->spritedist)
 	{
 		ft_log_error("spriteorder malloc has failed");
@@ -84,13 +84,13 @@ static	void	ft_init_key(t_game *game)
 	game->left = false;
 }
 
-void	ft_init_game(t_game *game, t_scene *scene)
+void			ft_init_game(t_game *game, t_scene *scene)
 {
 	game->scene = scene;
 	game->posx = scene->player.x + 0.5;
 	game->posy = scene->player.y + 0.5;
-	game->mlx = NULL;
 	game->win = NULL;
+	game->mlx = NULL;
 	game->dirx = 0;
 	game->diry = 0;
 	game->planey = 0;

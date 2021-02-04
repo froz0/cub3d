@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 12:30:52 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 12:52:12 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/03 22:34:14 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static	t_bool	ft_player_pos(int posx, int posy, t_scene *scene)
 		return (true);
 }
 
-void	ft_check_map(t_scene *scene)
+void			ft_check_map(t_scene *scene)
 {
 	int	y;
 	int	x;
