@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 00:10:12 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 22:33:15 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 15:10:56 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static	t_bool	ft_handle_line(char *line, t_scene *s)
 	else if (ft_strncmp(line, "S", 1) == 0)
 		ft_parse_texture(&s->s, line);
 	else if (ft_strncmp(line, "F", 1) == 0)
-		s->f = ft_parse_rgb(line + 1);
+		ft_parse_rgb(line + 1, &s->f);
 	else if (ft_strncmp(line, "C", 1) == 0)
-		s->c = ft_parse_rgb(line + 1);
+		ft_parse_rgb(line + 1, &s->c);
 	else
 		return (false);
 	return (true);

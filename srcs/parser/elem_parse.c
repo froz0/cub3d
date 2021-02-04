@@ -6,7 +6,7 @@
 /*   By: tmatis <tmatis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 14:12:59 by tmatis            #+#    #+#             */
-/*   Updated: 2021/02/03 22:34:36 by tmatis           ###   ########.fr       */
+/*   Updated: 2021/02/04 15:37:44 by tmatis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static int	ft_basic_atoi(char *str)
 
 void		ft_parse_r(char *line, t_scene *scene)
 {
+	if (scene->x_scr != -1)
+		ft_log_warn("Redefinition of [R]");
 	while (ft_isspace(*line))
 		line++;
 	scene->x_scr = ft_basic_atoi(line);
@@ -35,6 +37,14 @@ void		ft_parse_r(char *line, t_scene *scene)
 	while (ft_isspace(*line))
 		line++;
 	scene->y_scr = ft_basic_atoi(line);
+	while (ft_isnum(*line))
+		line++;
+	if (*line != '\0')
+	{
+		scene->x_scr = -2;
+		ft_log_error("Trailling char(s) at the end of [R]");
+		ft_dprintf(2, "-->'%s'\n", line);
+	}
 }
 
 static	int	ft_skip(char **line)
@@ -62,13 +72,15 @@ static	int	ft_skip(char **line)
 	return (0);
 }
 
-t_rgb		ft_parse_rgb(char *line)
+void		ft_parse_rgb(char *line, t_rgb *rgb)
 {
 	int		r;
 	int		g;
 	int		b;
 	int		error;
 
+	if (rgb->r != -1)
+		ft_log_warn("Redifinition of [RGB]");
 	error = 0;
 	while (ft_isspace(*line))
 		line++;
@@ -80,9 +92,17 @@ t_rgb		ft_parse_rgb(char *line)
 	error += ft_skip(&line);
 	b = ft_basic_atoi(line);
 	if (error)
-		return (ft_init_rgb(-2, -2, -2));
+		*rgb = ft_init_rgb(-2, -2, -2);
 	else
-		return (ft_init_rgb(r, g, b));
+		*rgb = ft_init_rgb(r, g, b);
+	while (ft_isnum(*line))
+		line++;
+	if (*line != '\0')
+	{
+		*rgb = ft_init_rgb(-2, -2, -2);
+		ft_log_error("Trailling char(s) at the end of [RGB]");
+		ft_dprintf(2 , "-->'%s'\n", line);
+	}
 }
 
 void		ft_parse_texture(char **path, char *line)
